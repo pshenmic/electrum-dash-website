@@ -1,0 +1,44 @@
+@import 'styles/variables.scss';
+
+
+.DownloadTabs {
+    &__Tab {
+        font-family: $title-font;
+        font-size: 14px;
+        letter-spacing: .5;
+        font-weight: 700;
+        color: rgba($color: $deep-blue, $alpha: .5);
+        display: inline-block;
+        border-radius: 10px 10px 0 0;
+        transition: all $def-transition-time;
+
+        &:not(.active) {
+            padding: 7px 15px 5px;
+            position: relative;
+            cursor: pointer;
+
+            &::after {
+                content: "";
+                border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+                position: absolute;
+                width: 100%;
+                left: 0;
+                bottom: 0;
+            }
+
+            &:hover {
+                color: rgba($color: $deep-blue, $alpha: 1);
+            }
+        }
+
+        &.active {
+            font-weight: 700;
+            opacity: 1;
+            color: $deep-blue;
+            border: 1px solid rgba($color: #000000, $alpha: 0.1);
+            border-width: 1px 1px 0 1px;
+            padding: 7px 15px 5px;
+        }
+    }
+
+}

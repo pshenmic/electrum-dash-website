@@ -12,12 +12,12 @@ export default function Header() {
   return (
     <header className={'Header'}>
       <div className={'Header__ContentContainer'}>
-      <Link className={'Header__LogoContainer'} href="/">
-        <img className={'Header__Logo'} src='./images/electrum-dash.svg'/>
+        <Link className={'Header__LogoContainer'} href="/">
+          <img className={'Header__Logo'} src='./images/electrum-dash.svg'/>
 
-        <div className={'Header__Title'}>
-          Electrum Dash
-        </div>
+          <div className={'Header__Title'}>
+            Electrum Dash
+          </div>
         </Link>
 
         <nav className={'Header__Navigation'}>

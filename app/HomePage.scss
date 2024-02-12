@@ -1,3 +1,41 @@
+@import 'styles/variables.scss';
+
 .HomePage {
-    
+    &__Introduction {
+        background-color: $blue;
+        color: #fff;
+        text-align: center;
+        padding: 110px 0;
+
+        h1 {
+            font-family: 'Montserat', sans-serif;
+            font-style: italic;
+            font-weight: 900;
+            font-size: 32px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+    }
+
+    &__Advantages {
+        margin: 110px auto;
+        max-width: 1000px;
+    }
+
+    &__Downloads {
+        margin: 110px auto;
+        max-width: 1000px;
+    }
+
+    &__LastUpdates {
+        margin: 110px auto;
+        max-width: 1000px;
+    }
+
+    &__SocialLinks {
+        width: max-content;
+        margin: 75px auto;
+    }
 }

@@ -1,0 +1,106 @@
+@import 'styles/variables.scss';
+
+$hover-animation-time: $def-transition-time;
+
+.DownloadButton {
+    position: relative;
+    width: 131px;
+    height: 131px;
+    overflow: hidden;
+    border-radius: 10px;
+
+    background-color: #fff;
+    border: 1px solid #BBD3E1;
+    transition: box-shadow $hover-animation-time;
+
+    -webkit-user-select: none;
+    -ms-user-select: none; 
+    user-select: none; 
+
+    &::before, &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        background-color: rgba($color: $blue, $alpha: .5);
+        transition: all $hover-animation-time, opacity .5s;
+        filter: blur(34px);
+        opacity: 0;
+    }
+
+    &::before {
+        bottom: -50px;
+        left: -200px;
+    }
+
+    &::after {
+        top: -50px;
+        right: -200px;
+    }
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: inset 0 1px 8px rgba(0, 0, 0, .25);
+
+        &::before, &::after {
+            opacity: 1;
+        }
+
+        &::before {
+            left: -50px;
+        }
+    
+        &::after {
+            right: -50px;
+        }
+    }
+
+    &:active {
+        box-shadow: inset 0 1px 8px rgba(0, 0, 0, .55);
+    }
+
+    &__Content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 25px 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            border: 1px solid #000;
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all $hover-animation-time;
+        }
+
+        &:hover {
+            &::before {
+                width: 85%;
+                height: 85%;
+                opacity: .1;
+            }
+        }
+
+        &:active {
+            &::before {
+                width: 80%;
+                height: 80%;
+                opacity: .05;
+            }
+        }
+    }
+
+    &__Title {
+        text-align: center;
+        width: 100%;
+    }
+}

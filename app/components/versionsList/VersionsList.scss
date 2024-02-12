@@ -1,0 +1,21 @@
+@import 'styles/variables.scss';
+
+.VersionsList {
+    &__Header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        a {
+            font-size: 14px;
+            letter-spacing: 0.6px;
+            transition: $def-transition-time;
+
+            &:hover {
+                cursor: pointer;
+                color: $blue;
+            }
+        }
+    }
+}
