@@ -9,7 +9,7 @@
         font-weight: 700;
         color: rgba($color: $deep-blue, $alpha: .5);
         display: inline-block;
-        border-radius: 10px 10px 0 0;
+        border-radius: $def-border-radius $def-border-radius 0 0;
         transition: all $def-transition-time;
 
         &:not(.active) {

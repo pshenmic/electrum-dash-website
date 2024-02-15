@@ -1,29 +1,41 @@
+@import 'styles/variables.scss';
+
 .Downloads {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     width: calc(100% + 30px);
     justify-content: space-between;
-    position: relative;
-    z-index: 1;
-    padding: 13px 15px;
     margin: 0 -15px;
 
-    &::before {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        inset: 0;
-        border-radius: 10px; 
-        padding: 1px; 
-        background:   linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, 
-                      linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-                mask-composite: exclude; 
+    &__ListContainer {
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        padding: 13px 15px;
+
+
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            border-radius: $def-border-radius; 
+            padding: 1px; 
+            background:   linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, 
+                          linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+                    mask-composite: exclude; 
+        }
     }
 
     &__ButtonsContainer {
         display: flex;
+        flex-wrap: wrap;
+        margin-bottom: -15px;
 
         .DownloadButton {
             margin-right: 25px;
@@ -36,10 +48,16 @@
 
     &__Button {
         margin-right: 25px;
+        margin-bottom: 25px;
 
         &:last-child {
             margin-right: 0;
         }
+    }
+
+    &__Info {
+        margin-right: -15px;
+
     }
 
     &__Logo {

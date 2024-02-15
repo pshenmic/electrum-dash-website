@@ -2,7 +2,7 @@
 
 .ContentBlock {
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: $def-border-radius;
     position: relative;
     z-index: 1;
 
@@ -11,7 +11,7 @@
         position: absolute;
         z-index: -1;
         inset: 0;
-        border-radius: 10px; 
+        border-radius: $def-border-radius; 
         padding: 1px; 
         margin: -1px;
         opacity: .3;

@@ -7,7 +7,7 @@ $hover-animation-time: $def-transition-time;
     width: 131px;
     height: 131px;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: $def-border-radius;
 
     background-color: #fff;
     border: 1px solid #BBD3E1;
@@ -75,7 +75,7 @@ $hover-animation-time: $def-transition-time;
             content: '';
             position: absolute;
             border: 1px solid #000;
-            border-radius: 10px;
+            border-radius: $def-border-radius;
             width: 100%;
             height: 100%;
             opacity: 0;
