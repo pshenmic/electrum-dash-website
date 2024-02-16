@@ -1,3 +1,5 @@
+@import 'styles/variables.scss';
+
 @mixin sm {
     @media (max-width: #{$screen-sm}) {
         @content;
@@ -19,5 +21,54 @@
 @mixin xl {
     @media (max-width: #{$screen-xl}) {
         @content;
+    }
+}
+
+@mixin content-wrapper {
+    margin: 110px auto;
+    max-width: 1000px;
+}
+
+@mixin page {
+    &__Advantages, &__Downloads, &__LastUpdates {
+        @include content-wrapper;
+    }
+
+    &__SocialLinks {
+        width: max-content;
+        margin: 75px auto;
+    }
+}
+
+@mixin def-list-item {
+    display: flex;
+    height: 42px;
+    font-size: 16px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba($color: $blue, $alpha: .025), rgba($color: $blue, $alpha: .05));
+        border: 1px solid;
+        border-width: 1px 0 1px 0;
+        border-color: rgba($color: $blue, $alpha: .1);
+        opacity: 0;
+        transition: all .1s;
     }
 }

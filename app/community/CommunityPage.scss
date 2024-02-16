@@ -1,0 +1,18 @@
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
+
+.CommunityPage {
+    @include page;
+
+    &__Introduction {
+        h1 {
+            font-size: 22px;
+            text-align: center;
+            font-weight: 500;
+        }
+    }
+
+    &__Introduction, &__Servers {
+        @include content-wrapper;
+    }
+}

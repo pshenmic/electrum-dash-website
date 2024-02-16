@@ -1,6 +1,9 @@
+@import 'styles/mixins.scss';
 @import 'styles/variables.scss';
 
 .HomePage {
+    @include page;
+
     &__Introduction {
         background-color: $blue;
         color: #fff;
@@ -17,25 +20,5 @@
         p {
             font-size: 16px;
         }
-    }
-
-    &__Advantages {
-        margin: 110px auto;
-        max-width: 1000px;
-    }
-
-    &__Downloads {
-        margin: 110px auto;
-        max-width: 1000px;
-    }
-
-    &__LastUpdates {
-        margin: 110px auto;
-        max-width: 1000px;
-    }
-
-    &__SocialLinks {
-        width: max-content;
-        margin: 75px auto;
     }
 }

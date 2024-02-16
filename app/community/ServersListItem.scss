@@ -1,0 +1,74 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.ServersListItem {
+    @include def-list-item;
+    overflow: hidden;
+
+    &__CopiedMessage {
+        opacity: 0;
+        opacity: 1;
+        width: 100%;
+        position: absolute;
+        height: 100%;
+        left: 0;
+        padding: 0 72px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__CupyButton {
+        position: relative;
+        z-index: 1;
+        background: transparent;
+        border: none;
+        width: 40px;
+        height: 40px;
+        margin-right: 12px;
+
+        &:hover {
+            cursor: pointer;
+
+            &::before {
+                background-color: rgba($color: $blue, $alpha: .1) ;
+                border-radius: $def-border-radius;
+                width: 36px;
+                height: 36px;
+            }
+
+            &::after {
+                opacity: 1;
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background-color: transparent;
+
+            transition: all $def-transition-time $inertial-transition-function;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background-image: url("/images/copy.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: .5;
+            transition: opacity $def-transition-time;
+        }
+    }
+}

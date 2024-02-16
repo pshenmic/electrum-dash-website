@@ -1,24 +1,23 @@
 "use client"
 
-import Advantages from '@/components/advantages'
-import {DownloadsWithInfo} from '@/components/downloads'
+import { DownloadsWithInfo } from '@/components/downloads'
 import VersionsList from '@/components/versionsList/'
 import SocialLinks from '@/components/socialLinks/'
-import 'HomePage.scss'
+import './DownloadsPage.scss'
 
 
 export default function Downloads() {
   return (
-    <main>
-      <section className={'HomePage__Downloads'}>
+    <main className={'DownloadsPage'}>
+      <section className={'DownloadsPage__Downloads'}>
         <DownloadsWithInfo/>
       </section>
 
-      <section className={'HomePage__LastUpdates'}>
+      <section className={'DownloadsPage__LastUpdates'}>
         <VersionsList/>
       </section>
 
-      <section className={'HomePage__SocialLinks'}>
+      <section className={'DownloadsPage__SocialLinks'}>
         <SocialLinks/>
       </section>
     </main>

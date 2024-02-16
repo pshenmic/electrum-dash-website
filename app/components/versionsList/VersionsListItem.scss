@@ -1,38 +1,8 @@
 @import 'styles/variables.scss';
-
-$hover-animation-time: .1s;
+@import 'styles/mixins.scss';
 
 .VersionsListItem {
-    display: flex;
-    height: 42px;
-    font-size: 16px;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-
-    &:hover {
-        &::after {
-            opacity: 1;
-        }
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(180deg, rgba($color: $blue, $alpha: .025), rgba($color: $blue, $alpha: .05));
-        border: 1px solid;
-        border-width: 1px 0 1px 0;
-        border-color: rgba($color: $blue, $alpha: .1);
-        opacity: 0;
-        transition: all $hover-animation-time;
-    }
+    @include def-list-item;
 
     &__Date {
         width: 90px;

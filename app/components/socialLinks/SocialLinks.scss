@@ -33,7 +33,7 @@ $hover-animation-time: $def-transition-time;
         display: inline-block;
         margin: 0 4px;
         transform: scale(1);
-        transition: all $hover-animation-time;
+        transition: all $hover-animation-time $inertial-transition-function;
 
         &:hover {
             transform: scale(1.2);
