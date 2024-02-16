@@ -1,0 +1,175 @@
+@import 'styles/variables.scss';
+
+.Teammate {
+    display: flex;
+    padding: 0 20px;
+
+    &__ImgContainer {
+        width: 150px;
+        height: 150px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: $def-border-radius;
+            object-fit: cover;
+        }
+    }
+
+    &__InfoContainer {
+        margin-left: 23px;
+    }
+
+    &__HeadContainer {
+        display: flex;
+        margin-bottom: 12px;
+    }
+
+    &__Name, &__Role {
+        margin: 0;
+    }
+
+    &__Name {
+        font-size: 18px;
+        line-height: 28px;
+        margin-right: 16px;
+    }
+
+    &__Role {
+        font-size: 16px;
+        line-height: 28px;
+        color: $blue;
+        font-family: $text-font;
+        font-weight: 400;
+    }
+    
+    &__Line {
+        display: flex;
+    }
+
+    &__LineTitle {
+        margin-right: 8px;
+        margin-bottom: 4px;
+    }
+
+    &__GpgKey {
+        border-radius: 5px;
+        background-color: #F4F4F4;
+        padding: 0 8px;
+        font-family: monospace;
+        font-size: 14px;
+        line-height: 28px;
+    }
+
+    &__CopyButton {
+        position: relative;
+        z-index: 1;
+        background: transparent;
+        border: none;
+        width: 28px;
+        height: 28px;
+        margin: 0 4px;
+
+        &:hover {
+            cursor: pointer;
+
+            &::before {
+                background-color: rgba($color: $blue, $alpha: .1) ;
+                border-radius: $def-border-radius;
+                width: 24px;
+                height: 24px;
+            }
+
+            &::after {
+                opacity: 1;
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background-color: transparent;
+            transition: all $def-transition-time $inertial-transition-function;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background-image: url("/images/copy.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: .5;
+            transition: opacity $def-transition-time;
+        }
+    }    
+
+    &__Links {
+        display: flex;
+        margin-top: 8px;
+    }
+
+    &__Link {
+        position: relative;
+        border-radius: 5px;
+        background-color: #fff;
+        display: block;
+        width: 32px;
+        height: 32px;
+        margin-right: 9px;
+        box-shadow: 0 1px 4px rgba($color: $deep-blue, $alpha: .2);
+
+        transition: all $def-transition-time;
+
+        &:hover {
+            box-shadow: 0 1px 2px rgba($color: $deep-blue, $alpha: .2);
+            background-color: rgba($color: $blue, $alpha: .02);
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            border-radius: 5px; 
+            padding: 1px; 
+            margin: -1px;
+            opacity: .3;
+            background: linear-gradient(45deg, rgba($color: $blue, $alpha: .4) 0%,
+                                               rgba($color: $blue, $alpha: 0) 50%, 
+                                               rgba($color: $blue, $alpha: .4) 100%);
+            -webkit-mask: 
+               linear-gradient(#fff 0 0) content-box, 
+               linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+                    mask-composite: exclude; 
+        }
+
+        &--Web {
+            background: url(/images/web.svg) no-repeat center;
+        }
+
+        &--Github {
+            background: url(/images/github-blue.svg) no-repeat center;
+        }
+
+        &--Twitter {
+            background: url(/images/twitter-blue.svg) no-repeat center;
+        }
+
+        &--Discord {
+            background: url(/images/discord-blue.svg) no-repeat center;
+        }
+    }
+}

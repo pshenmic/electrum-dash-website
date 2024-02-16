@@ -5,7 +5,7 @@
     &__Tab {
         font-family: $title-font;
         font-size: 14px;
-        letter-spacing: .5;
+        letter-spacing: $title-letter-spacing;
         font-weight: 700;
         color: rgba($color: $deep-blue, $alpha: .5);
         display: inline-block;

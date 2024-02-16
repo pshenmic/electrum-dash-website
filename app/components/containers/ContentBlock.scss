@@ -6,6 +6,32 @@
     position: relative;
     z-index: 1;
 
+    &--ExternalHeader {
+        margin-top: 48px;
+
+        &::after {
+            content: '';
+            width: 14px;
+            height: 12px;
+            background: url(/images/triangle-grey.svg) no-repeat;
+            background-size: contain;
+            position: absolute;
+            z-index: -1;
+            top: -11px;
+            left: 20px;
+        }
+    }
+
+    &--ExternalHeader &__Header {
+        position: absolute;
+        top: -48px;
+
+        h2 {
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+
     &::before {
         content: "";
         position: absolute;
@@ -30,20 +56,28 @@
         display: flex;
         align-items: center;
         min-height: 40px;
-        background: rgba(30, 141, 228, .05);
-        border-bottom: 1px solid rgba($color: #000000, $alpha: .1);
-
         padding: 0 20px;
 
         h2 {
             font-family: $title-font;
             font-weight: 700;
             font-size: 14px;
-            letter-spacing: .05;
+            margin: 0;
         }
     }
 
+    &:not(&--ExternalHeader) &__Header {
+        border-bottom: 1px solid rgba($color: #000000, $alpha: .1);
+        background: rgba(30, 141, 228, .05);
+    }
+
+
     &__Content {
         padding: 28px 0;
+    }
+
+    &__ContentConteiner {
+        padding: 0 20px;
+        line-height: 28px;
     }
 }

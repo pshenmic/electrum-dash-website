@@ -1,6 +1,16 @@
 import './ContentBlock.scss'
 
-function ContentBlock({children, className = ''}) {
+function ContentBlockTitle({children, className = ''}) {
+  return (
+    <h2 className={'ContentBlock ' + className}>
+        { children }
+    </h2>
+  )
+}
+
+function ContentBlock({children, externalHeader = false, className = ''}) {
+  if (externalHeader) className += ' ContentBlock--ExternalHeader'
+
   return (
     <div className={'ContentBlock ' + className}>
         { children }
@@ -24,5 +34,19 @@ function ContentBlockContent({children, className = ''}) {
   )
 }
 
+function ContentConteiner({children, className = ''}) {
+  return (
+      <div className={'ContentBlock__ContentConteiner ' + className}>
+        { children }
+      </div>
+  )
+}
 
-export {ContentBlock, ContentBlockHeader, ContentBlockContent}
+
+export {
+  ContentBlock, 
+  ContentBlockHeader, 
+  ContentBlockContent, 
+  ContentBlockTitle,
+  ContentConteiner
+}

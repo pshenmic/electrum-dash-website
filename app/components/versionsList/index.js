@@ -1,5 +1,5 @@
 import {ContentBlock, ContentBlockHeader, ContentBlockContent} from '@/components/containers/ContentBlock'
-import { motion as m, AnimatePresence } from 'framer-motion'
+import { motion as m } from 'framer-motion'
 import Link from 'next/link'
 import './VersionsList.scss'
 import './VersionsListItem.scss'
@@ -58,6 +58,7 @@ export default function VersionsList() {
                 {versions.map((version, id) =>
                     <VersionsListItem 
                         i={id}
+                        key={'version' + id}
                         date={version.date}
                         version={version.version}
                         description={version.description}
