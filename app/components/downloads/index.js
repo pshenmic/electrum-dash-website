@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import {ContentBlock, ContentBlockContent} from '@/components/containers/ContentBlock'
-import { motion as m, AnimatePresence, whileInView } from 'framer-motion'
+import { motion as m } from 'framer-motion'
 import Link from 'next/link'
 import './DownloadButton.scss'
 import './Downloads.scss'
@@ -16,7 +16,30 @@ const ltsReleaseNotes = [
 const currentReleaseNotes = [
     'Storage: more write attempts, write attempts GUI',
     'Simple_config.py: fix FEERATE_STATIC_VALUES not to be less 1000',
-    'Trezor plugin: allow skip session clear on wallet close'
+    'Trezor plugin: allow skip session clear on wallet close',
+]
+
+const versions = [
+    {
+        title: 'LTS 4.1.5.0',
+        releaseNotes: ltsReleaseNotes,
+        links: {
+            windows: '#',
+            mac: '#',
+            linux: '#',
+            android: [{title: '', href: '#'}, {title: '', href: '#'}]
+        }
+    },
+    {
+        title: 'Current 4.6.2.0',
+        releaseNotes: currentReleaseNotes,
+        links: {
+            windows: '#',
+            mac: '#',
+            linux: '#',
+            android: [{title: '', href: '#'}, {title: '', href: '#'}]
+        }
+    }
 ]
 
 function DownloadButton({iconSrc, title, link}) {
@@ -51,11 +74,20 @@ function DownloadButtonDouble({iconSrc, title, links = []}) {
     )
 }
 
-function DownloadTabs({iconSrc, title}) {
+function DownloadTabs({activeVersion, changeVersion}) {
     return (
         <div className={'DownloadTabs'}>
-            <div className={'DownloadTabs__Tab active'}>LTS 4.1.5.0</div>
-            <div className={'DownloadTabs__Tab'}>Current 4.6.2.0</div>
+
+            {versions.map((version, id) =>
+                <div 
+                    key={'VersionTab' + id}
+                    className={'DownloadTabs__Tab ' + (activeVersion === id ? 'active' : '') } 
+                    onClick={() => changeVersion(id)}
+                >
+                    {version.title}
+                </div>
+            )}
+            
         </div>
     )
 }
@@ -79,7 +111,7 @@ function VersionInfo({features = []}) {
     )
 }
 
-function DownloadsList() {
+function DownloadsList({activeVersion, changeVersion}) {
     return (
         <div className='Downloads__List'>
             <m.div 
@@ -88,7 +120,10 @@ function DownloadsList() {
                 transition={{ duration: .5 }}
                 className={'Downloads__Tabs'}
             >
-                <DownloadTabs/>
+                <DownloadTabs 
+                    activeVersion={activeVersion} 
+                    changeVersion={changeVersion}
+                />
             </m.div>
 
             <div 
@@ -97,60 +132,67 @@ function DownloadsList() {
                 transition={{ duration: .5 }}
                 whileInView={{ x: 0, opacity: 1 }}
             >
-                <m.div 
-                    initial={{ x: 20, opacity: 0 }}
-                    transition={{ duration: .5 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    className={'Downloads__Button'}
-                >
-                    <DownloadButton
-                        iconSrc={'/images/windows.svg'}
-                        title={'Windows'}
-                        link={'#'}
-                    />
-                </m.div>
 
-                <m.div 
-                    initial={{ x: 20, opacity: 0 }}
-                    transition={{ duration: .5, delay: .1 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    className={'Downloads__Button'}
-                >
-                    <DownloadButton 
-                        iconSrc={'/images/mac.svg'}
-                        title={'Mac'}
-                        link={'#'}
-                    />
-                </m.div>
+                {versions[activeVersion].links.windows &&
+                    <m.div 
+                        initial={{ x: 20, opacity: 0 }}
+                        transition={{ duration: .5 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        className={'Downloads__Button'}
+                    >
+                        <DownloadButton
+                            iconSrc={'/images/windows.svg'}
+                            title={'Windows'}
+                            link={versions[activeVersion].links.windows}
+                        />
+                    </m.div>
+                }
 
-                <m.div
-                    initial={{ x: 20, opacity: 0 }}
-                    transition={{ duration: .5, delay: .2 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    className={'Downloads__Button'}
-                >
-                    <DownloadButton 
-                        iconSrc={'/images/linux.svg'}
-                        title={'Linux'}
-                        link={'#'}
-                    />
-                </m.div>
+                {versions[activeVersion].links.mac &&
+                    <m.div 
+                        initial={{ x: 20, opacity: 0 }}
+                        transition={{ duration: .5, delay: .1 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        className={'Downloads__Button'}
+                    >
+                        <DownloadButton 
+                            iconSrc={'/images/mac.svg'}
+                            title={'Mac'}
+                            link={versions[activeVersion].links.mac}
+                        />
+                    </m.div>
+                }
 
-                <m.div 
-                    initial={{ x: 20, opacity: 0 }}
-                    transition={{ duration: .5, delay: .3 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    className={'Downloads__Button'}
-                >
-                    <DownloadButtonDouble 
-                        iconSrc={'/images/android.svg'}
-                        title={'Android'}
-                        links={[
-                            {title:'armeabi v7a', href: '#'},
-                            {title:'arm64 v8a', href: '#'}
-                        ]}
-                    />
-                </m.div>
+                {versions[activeVersion].links.linux &&
+                    <m.div
+                        initial={{ x: 20, opacity: 0 }}
+                        transition={{ duration: .5, delay: .2 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        className={'Downloads__Button'}
+                    >
+                        <DownloadButton 
+                            iconSrc={'/images/linux.svg'}
+                            title={'Linux'}
+                            link={'#'}
+                        />
+                    </m.div>
+                }
+
+                {versions[activeVersion].links.android &&
+                    <m.div 
+                        initial={{ x: 20, opacity: 0 }}
+                        transition={{ duration: .5, delay: .3 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        className={'Downloads__Button'}
+                    >
+                        <DownloadButtonDouble 
+                            iconSrc={'/images/android.svg'}
+                            title={'Android'}
+                            links={versions[activeVersion].links.android}
+                        />
+                    </m.div>
+                }
+
             </div>
         </div>
     )
@@ -163,23 +205,28 @@ function DownloadsWithLogo() {
                 <DownloadsList/>
             </div>
 
-            <m.div 
+            <m.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 1.25, delay: .6 }}
                 className='Downloads__Logo'
             >
-                <img src='/images/electrum-dash.svg'/>
+                <img alt="electrum dash logo" src='/images/electrum-dash.svg'/>
             </m.div>
       </div>
   )
 }
 
 function DownloadsWithInfo() {
+    const [activeVersion, setActiveVersion] = useState(0)
+
     return (
         <div className={'Downloads'}>
             <div className="Downloads__ListContainer">
-                <DownloadsList/>
+                <DownloadsList 
+                    activeVersion={activeVersion}
+                    changeVersion={setActiveVersion}
+                />
             </div>
            
             <m.div 
@@ -188,7 +235,7 @@ function DownloadsWithInfo() {
                 transition={{ duration: 1.25, delay: .6 }}
                 className='Downloads__Info'
             >
-                <VersionInfo features={ltsReleaseNotes}/>
+                <VersionInfo features={versions[activeVersion].releaseNotes}/>
             </m.div>
         </div>
     )
