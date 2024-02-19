@@ -43,30 +43,34 @@ function VersionsListItem({i, date, version, description}) {
     )
 }
 
-export default function VersionsList() {
-  return (
-    <ContentBlock>
-        <ContentBlockHeader>
-            <div className='VersionsList__Header'>
-                <h2>Last updates:</h2>
-                <Link href={'/downloads'}>All versions</Link>
-            </div>
-        </ContentBlockHeader>
-        <ContentBlockContent>
-            <div className={'VersionsList'}>
+export default function VersionsList({amount = null}) {
+    const elements = !amount ? versions : versions.slice(0, amount);
 
-                {versions.map((version, id) =>
-                    <VersionsListItem 
-                        i={id}
-                        key={'version' + id}
-                        date={version.date}
-                        version={version.version}
-                        description={version.description}
-                    />
-                )}
-                
-            </div>
-        </ContentBlockContent>
-    </ContentBlock>
-  )
+    return (
+        <ContentBlock>
+            <ContentBlockHeader>
+                <div className='VersionsList__Header'>
+                    <h2>Last updates:</h2>
+                    {amount &&
+                        <Link href={'/downloads'}>All versions</Link>
+                    }
+                </div>
+            </ContentBlockHeader>
+            <ContentBlockContent>
+                <div className={'VersionsList'}>
+
+                    {elements.map((version, id) =>
+                        <VersionsListItem 
+                            i={id}
+                            key={'version' + id}
+                            date={version.date}
+                            version={version.version}
+                            description={version.description}
+                        />
+                    )}
+                    
+                </div>
+            </ContentBlockContent>
+        </ContentBlock>
+    )
 }

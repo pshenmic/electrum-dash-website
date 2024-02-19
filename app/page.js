@@ -23,7 +23,7 @@ export default function Home() {
       </section>
 
       <section className={'HomePage__LastUpdates'}>
-        <VersionsList/>
+        <VersionsList amount={6}/>
       </section>
 
       <section className={'HomePage__SocialLinks'}>
