@@ -19,12 +19,33 @@ const currentReleaseNotes = [
     'Trezor plugin: allow skip session clear on wallet close'
 ]
 
-function DownloadButton({iconSrc, title}) {
+function DownloadButton({iconSrc, title, link}) {
     return (
-        <div className='DownloadButton'>
+        <Link href={link} className='DownloadButton'>
             <div className='DownloadButton__Content'>
                 <img src={iconSrc}/>
                 <div className={'DownloadButton__Title'}>{title}</div>
+            </div>
+        </Link>
+    )
+}
+
+function DownloadButtonDouble({iconSrc, title, links = []}) {
+    return (
+        <div className='DownloadButton DownloadButton--Double'>
+            <div className='DownloadButton__Content'>
+                <img src={iconSrc}/>
+                <div className={'DownloadButton__Title'}>{title}</div>
+            </div>
+
+            <div className={'DownloadButton__LinksContainer'}>
+                <Link className={'DownloadButton__Link'} href={links[0].href}>
+                    <div className={'DownloadButton__LinkContent'}>{links[0].title}</div>
+                </Link>
+
+                <Link className={'DownloadButton__Link'} href={links[1].href}>
+                    <div className={'DownloadButton__LinkContent'}>{links[1].title}</div>
+                </Link>
             </div>
         </div>
     )
@@ -85,6 +106,7 @@ function DownloadsList() {
                     <DownloadButton
                         iconSrc={'/images/windows.svg'}
                         title={'Windows'}
+                        link={'#'}
                     />
                 </m.div>
 
@@ -97,6 +119,7 @@ function DownloadsList() {
                     <DownloadButton 
                         iconSrc={'/images/mac.svg'}
                         title={'Mac'}
+                        link={'#'}
                     />
                 </m.div>
 
@@ -109,6 +132,7 @@ function DownloadsList() {
                     <DownloadButton 
                         iconSrc={'/images/linux.svg'}
                         title={'Linux'}
+                        link={'#'}
                     />
                 </m.div>
 
@@ -118,9 +142,13 @@ function DownloadsList() {
                     whileInView={{ x: 0, opacity: 1 }}
                     className={'Downloads__Button'}
                 >
-                    <DownloadButton 
+                    <DownloadButtonDouble 
                         iconSrc={'/images/android.svg'}
                         title={'Android'}
+                        links={[
+                            {title:'armeabi v7a', href: '#'},
+                            {title:'arm64 v8a', href: '#'}
+                        ]}
                     />
                 </m.div>
             </div>
