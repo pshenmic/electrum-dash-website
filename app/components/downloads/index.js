@@ -199,10 +199,15 @@ function DownloadsList({activeVersion, changeVersion}) {
 }
 
 function DownloadsWithLogo() {
+    const [activeVersion, setActiveVersion] = useState(0)
+
   return (
       <div className={'Downloads'}>
             <div className="Downloads__ListContainer">
-                <DownloadsList/>
+                <DownloadsList 
+                    activeVersion={activeVersion}
+                    changeVersion={setActiveVersion}
+                />
             </div>
 
             <m.div
