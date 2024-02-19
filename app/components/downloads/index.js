@@ -27,7 +27,7 @@ const versions = [
             windows: '#',
             mac: '#',
             linux: '#',
-            android: [{title: '', href: '#'}, {title: '', href: '#'}]
+            android: [{title: 'armeabi v7a', href: '#'}, {title: 'arm64 v8a', href: '#'}]
         }
     },
     {
@@ -37,7 +37,7 @@ const versions = [
             windows: '#',
             mac: '#',
             linux: '#',
-            android: [{title: '', href: '#'}, {title: '', href: '#'}]
+            android: [{title: 'armeabi v7a', href: '#'}, {title: 'arm64 v8a', href: '#'}]
         }
     }
 ]
