@@ -1,11 +1,23 @@
 @import 'styles/variables.scss';
+@import 'styles/mixins.scss';
 
 $hover-animation-time: $def-transition-time;
 
-.Header {
+.HeaderStub {
     height: 60px;
+}
+
+.Header {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid #1E71B6;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: .2);
+    box-sizing: content-box;
+    margin-bottom: -1px;
     background-color: #fff;
-    border-bottom: 1px solid rgba(0, 0, 0, .2);
 
     &__LogoContainer {
         display: flex;
@@ -27,6 +39,10 @@ $hover-animation-time: $def-transition-time;
         font-size: 22px;
         color: $blue;
         line-height: 60px;
+        white-space: nowrap;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
     &__ContentContainer {
@@ -34,9 +50,14 @@ $hover-animation-time: $def-transition-time;
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        max-width: 1000px;
+        max-width: 1040px;
         height: 100%;
         margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    &__Navigation {
+        margin-right: -20px;
     }
 
     &__NavigationLink {
@@ -115,6 +136,49 @@ $hover-animation-time: $def-transition-time;
                         mask-composite: exclude; 
             }
 
+        }
+    }
+
+    &__Burger {
+        display: none;
+    }
+
+    @include lg {
+        &__Burger {
+            display: block;
+        }
+
+        &__Navigation {
+            visibility: hidden;
+            position: absolute;
+            right: 20px;
+            top: 50px;
+            width: calc(100% - 40px);
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+            border-radius: 10px;
+            margin: 0;
+            padding: 28px 20px;
+            opacity: 0;
+            transition: all $hover-animation-time;
+            transform: rotateX(20deg) scaleY(0.5);
+            transform-origin: 0 0;
+            border: 1px solid rgba($color: $midnight-blue, $alpha: .6);
+
+            input:checked ~ & {
+                display: block;
+                visibility: visible;
+                opacity: 1;
+                top: 70px;
+                left: 20px;
+                transform: rotateX(0) scaleY(1);
+            }
+        }
+
+        &__NavigationLink {
+            display: block;
+            margin: 4px 0;
         }
     }
 }

@@ -3,31 +3,50 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import './Header.scss'
+import './Burger.scss'
 
+const links = [
+  {title:'Home', id: '', href:'/'},
+  {title:'Downloads', id: 'downloads', href:'/downloads'},
+  {title:'Community', id: 'community', href:'/community'},
+  {title:'About', id: 'about', href:'/about'},
+]
 
 export default function Header() {
   const path = usePathname().split('/').slice(1)
   const [activeSection] = path
 
   return (
-    <header className={'Header'}>
-      <div className={'Header__ContentContainer'}>
-        <Link className={'Header__LogoContainer'} href="/">
-          <img className={'Header__Logo'} src='./images/electrum-dash.svg'/>
+    <>
+      <div className={'HeaderStub'}></div>
+      <header className={'Header'}>
+        <div className={'Header__ContentContainer'}>
+          <Link className={'Header__LogoContainer'} href="/">
+            <img className={'Header__Logo'} src='./images/electrum-dash.svg'/>
 
-          <div className={'Header__Title'}>
-            Electrum Dash
-          </div>
-        </Link>
+            <div className={'Header__Title'}>
+              Electrum Dash
+            </div>
+          </Link>
 
-        <nav className={'Header__Navigation'}>
-          <Link className={`Header__NavigationLink ${activeSection === '' ? 'active' : '' }`} href="/">Home</Link>
-          <Link className={`Header__NavigationLink ${activeSection === 'downloads' ? 'active' : '' }`} href="/downloads">Downloads</Link>
-          <Link className={`Header__NavigationLink ${activeSection === 'community' ? 'active' : '' }`} href="/community">Community</Link>
-          <Link className={`Header__NavigationLink ${activeSection === 'about' ? 'active' : '' }`} href="/about">About</Link>
-        </nav>
+          <input id='BurgerMenu' type="checkbox" style={{display: 'none'}} />
 
-      </div>
-    </header>
+          <label for='BurgerMenu' className='Header__Burger Burger'>
+            <span className='Burger__Line'></span>
+            <span className='Burger__Line'></span>
+            <span className='Burger__Line'></span>
+          </label>
+
+          <nav className={'Header__Navigation'}>
+
+            {links.map((link, id) =>
+              <Link className={`Header__NavigationLink ${activeSection === link.id ? 'active' : '' }`} href={link.href}>{link.title}</Link>
+            )}
+
+          </nav>
+
+        </div>
+      </header>
+    </>
   );
 }
