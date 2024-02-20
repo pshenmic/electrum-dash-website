@@ -58,6 +58,7 @@
 
     &__Info {
         margin-right: -15px;
+        width: 515px;
     }
 
     &__Logo {
@@ -78,8 +79,40 @@
         margin-bottom: 13px;
     }
 
+    @media (max-width: 1100px) {
+        &--Info & {
+            &__Info {
+                margin-right: 0;
+            }
+        }
+    }
+    
+    @include xl {
+        &--Info & {
+            &__Info {
+                margin-right: 15px;
+            }
+        }
+    }
     
     @include lg-xl {
+        &--Info {
+            flex-wrap: wrap;
+        }
+        
+        &--Info & {
+            &__Info {
+                width: 100%;
+                margin: 0 15px;
+            }
+
+            &__ListContainer {
+                &::before {
+                    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+                }
+            }
+        }
+
         &__Logo {
             display: none;
         }
@@ -92,43 +125,51 @@
                 background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
             }
         }
-    }
 
-    // @media (max-width: 655px) {
-    //     &__ButtonsContainer {
-    //         justify-content: center;
-    //     }
-
-    //     &__Button {
-    //         &:nth-child(3) {
-    //             margin-right: 0;
-    //         }
-
-    //         &:nth-child(1) {
-    //             margin-right: 0;
-    //         }
-    //     }
-    // }
-
-    @include lg {
-        &__Tabs {
-            text-align: center;
+        &__List {
+            width: 100%;
         }
-
+        
         &__ButtonsContainer {
             justify-content: center;
             width: 100%;
             max-width: none;
-        }
-
-        &__ListContainer {
-            justify-content: center;
+            justify-content: space-between;
         }
 
         &__Button {
-            &:last-child, & {
-                margin-left: 10px;
-                margin-right: 10px;
+            width: calc(25% - 20px);
+            margin-left: 0;
+            margin-right: 0;
+
+            .DownloadButton {
+                width: 100%;
+            }
+        }
+    }
+
+    @include md {
+        &__Tabs {
+            text-align: center;
+        }
+
+        &__Button {
+            width: calc(50% - 20px);
+
+            .DownloadButton {
+                width: 100%;
+            }
+        }  
+    }
+
+    @include sm {
+        &__Button {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+
+            .DownloadButton {
+                width: 100%;
             }
         }
     }

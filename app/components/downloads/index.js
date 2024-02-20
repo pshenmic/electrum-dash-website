@@ -202,7 +202,7 @@ function DownloadsWithLogo() {
     const [activeVersion, setActiveVersion] = useState(0)
 
   return (
-      <div className={'Downloads'}>
+      <div className={'Downloads Downloads--Logo'}>
             <div className="Downloads__ListContainer">
                 <DownloadsList 
                     activeVersion={activeVersion}
@@ -226,7 +226,7 @@ function DownloadsWithInfo() {
     const [activeVersion, setActiveVersion] = useState(0)
 
     return (
-        <div className={'Downloads'}>
+        <div className={'Downloads Downloads--Info'}>
             <div className="Downloads__ListContainer">
                 <DownloadsList 
                     activeVersion={activeVersion}
