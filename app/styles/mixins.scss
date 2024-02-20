@@ -18,6 +18,12 @@
     }
 }
 
+@mixin lg-xl {
+    @media (max-width: #{$screen-lg-xl}) {
+        @content;
+    }
+}
+
 @mixin xl {
     @media (max-width: #{$screen-xl}) {
         @content;
@@ -27,6 +33,11 @@
 @mixin content-wrapper {
     margin: 110px auto;
     max-width: 1000px;
+    
+    @include xl {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 @mixin page {
