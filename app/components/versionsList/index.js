@@ -8,7 +8,7 @@ const versions = [
     {
         date: 'Mar 8, 2022',
         version: '4.1.5.2',
-        description: 'version to 4.1.5.2, add RELEASE-NOTES'
+        description: 'version to 4.1.5.2, add RELEASE-NOTES version to 4.1.5.2, add RELEASE-NOTES, version to 4.1.5.2, '
     },
     {
         date: 'Mar 8, 2022',
@@ -33,12 +33,13 @@ function VersionsListItem({i, date, version, description}) {
             initial={{ y: -10, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: .3, delay: i/10 }}
+            className={'VersionsListItem'}
         >
-            <div className={'VersionsListItem'}>
-                <div className={'VersionsListItem__Date'}>{date}</div>
-                <div className={'VersionsListItem__Version'}>{version}</div>
-                <div className={'VersionsListItem__Description'}>{description}</div>
-            </div>
+            <Link href={''} className={'VersionsListItem__ContentContainer'}>
+                    <div className={'VersionsListItem__Date'}>{date}</div>
+                    <div className={'VersionsListItem__Version'}>{version}</div>
+                    <div className={'VersionsListItem__Description'}>{description}</div>
+            </Link>
         </m.div>
     )
 }

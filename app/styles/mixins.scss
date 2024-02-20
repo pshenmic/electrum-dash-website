@@ -53,9 +53,9 @@
 
 @mixin def-list-item {
     display: flex;
-    height: 42px;
+    min-height: 42px;
     font-size: 16px;
-    padding: 0 20px;
+    padding: 4px 20px;
     display: flex;
     align-items: center;
     position: relative;
@@ -81,5 +81,27 @@
         border-color: rgba($color: $blue, $alpha: .1);
         opacity: 0;
         transition: all .1s;
+    }
+
+    &__ContentContainer {
+        display: flex;
+        align-items: baseline;
+    }
+
+    @include md {
+        border-bottom: 1px solid rgba($color: $midnight-blue, $alpha: .2);
+
+        padding: 10px 20px;
+
+        &:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        &__ContentContainer {
+            flex-wrap: wrap;
+            margin: 10px 0;
+
+        }
     }
 }
