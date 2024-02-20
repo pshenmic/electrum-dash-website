@@ -17,6 +17,11 @@
         align-items: center;
     }
 
+    &__Address {
+        word-wrap: break-word;
+        max-width: calc(100% - 60px);
+    }
+
     &__CupyButton {
         position: relative;
         z-index: 1;

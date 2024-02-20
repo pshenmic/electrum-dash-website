@@ -49,7 +49,7 @@ function ServersListItem({server, id}) {
             onClick={ () => copyAddress(server.address) }
         ></button>
         <m.div 
-            className={'VersionsListItem__Address'}
+            className={'ServersListItem__Address'}
             initial = {{opacity: 0}}
             variants = {{
             hidden: { opacity: 1, y:0, transition: { duration: 0.3 } },
