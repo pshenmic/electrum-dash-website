@@ -91,20 +91,6 @@ export default function Team() {
                     discord: 'https://discordapp.com/users/784071440864378911'
                 }}
             />
-
-            <Teammate
-                name = {'Mikhail Pshenichnikov'}
-                role = {'Maintainer'}
-                gpgkey = {'2BB6803FCF82316969619C155699884482E426AC'}
-                email = {'mail@pshenmic.dev'}
-                imgSrc = {'https://avatars.githubusercontent.com/u/17009187'}
-                links = {{
-                    website: 'https://pshenmic.dev/',
-                    github: 'https://github.com/pshenmic/',
-                    twitter: 'https://twitter.com/pshenmic',
-                    discord: 'https://discordapp.com/users/784071440864378911'
-                }}
-            />
         </div>
     )
 }
