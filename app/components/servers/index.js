@@ -21,7 +21,7 @@ function ServersListItem({server, id}) {
 
     function copyAddress(address) {
         try {
-            navigator.clipboard.writeText(server.address);
+            navigator.clipboard.writeText(address);
             setCopyMessage(copyMessageSuccess)
         } catch (err) {
             setCopyMessage(copyMessageError);
@@ -35,11 +35,6 @@ function ServersListItem({server, id}) {
     }
 
     return (
-        <m.div
-        initial={{ y: -10, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: .3, delay: id/10 }}
-    >
         <div className={'ServersListItem'}>
 
             <button 
@@ -47,17 +42,11 @@ function ServersListItem({server, id}) {
                 onClick={ () => copyAddress(server.address) }
             ></button>
 
-            <m.div 
-                className={'ServersListItem__Address'}
-                initial = {{opacity: 0}}
-                variants = {{
-                    hidden: { opacity: 1, y:0, transition: { duration: 0.3 } },
-                    visible: { opacity: 0, y: '100%', transition: { duration: 0.3 }  }
-                }}
-                animate={messageVisibility ? 'visible' : 'hidden'}
+            <div 
+                className={'ServersListItem__Address ' + (messageVisibility ? 'hidden' : '')}
             >
                 {server.address}
-            </m.div>
+            </div>
 
             <m.div 
                 className={'ServersListItem__CopiedMessage'}
@@ -72,8 +61,6 @@ function ServersListItem({server, id}) {
             </m.div>
         
         </div>
-
-    </m.div>
     )
 }
 

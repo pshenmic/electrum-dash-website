@@ -1,6 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
+import { useRouter } from "next/router";
 import Link from 'next/link'
 import './Header.scss'
 import './Burger.scss'
@@ -31,7 +32,7 @@ export default function Header() {
 
           <input id='BurgerMenu' type="checkbox" style={{display: 'none'}} />
 
-          <label for='BurgerMenu' className='Header__Burger Burger'>
+          <label htmlFor='BurgerMenu' className='Header__Burger Burger'>
             <span className='Burger__Line'></span>
             <span className='Burger__Line'></span>
             <span className='Burger__Line'></span>

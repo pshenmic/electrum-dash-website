@@ -53,10 +53,12 @@ function Teammate({name, role, gpgkey, email, imgSrc, links, className = ''}) {
 
             
                 <div className={'Teammate__Line Teammate__Line--Gpg'}>
+                    
                     <div className={'Teammate__LineTitle'}>GPG key:</div>
+                    
                     <div className={'Teammate__LineValue'}>
                         
-                        <div className={'Teammate__GpgKey'}>{gpgkey}</div>
+                        <div className={'Teammate__GpgKey ' + (copyMessagesState.gpgkey ? 'hidden' : '')}>{gpgkey}</div>
 
                         <button 
                             className={'Teammate__CopyButton'} 
@@ -76,6 +78,7 @@ function Teammate({name, role, gpgkey, email, imgSrc, links, className = ''}) {
                         </m.div>
 
                     </div>
+
                 </div>
 
                 <div className={'Teammate__Line'}>
@@ -83,7 +86,7 @@ function Teammate({name, role, gpgkey, email, imgSrc, links, className = ''}) {
                     <div className={'Teammate__LineTitle'}>Email:</div>
                     
                     <div className={'Teammate__LineValue'}>
-                        <div className={'Teammate__Email'}>{email}</div>
+                        <div className={'Teammate__Email ' + (copyMessagesState.email ? 'hidden' : '')}>{email}</div>
                         
                         <button 
                             className={'Teammate__CopyButton'}

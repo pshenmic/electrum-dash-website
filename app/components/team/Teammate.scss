@@ -75,7 +75,6 @@
         height: 100%;
         left: 0;
         top: 0;
-        background-color: #fff;
     }
 
     &__GpgContainer {
@@ -85,6 +84,12 @@
     &__GpgKey, &__Email {
         word-wrap: break-word;
         word-break: break-all;
+        transition: all $def-transition-time;
+        transition-timing-function: $inertial-transition-function;
+
+        &.hidden {
+            opacity: 0;
+        }
     }
 
     &__GpgKey {

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {ContentBlock, ContentBlockContent} from '@/components/containers/ContentBlock'
-import { motion as m } from 'framer-motion'
 import Link from 'next/link'
 import './DownloadButton.scss'
 import './Downloads.scss'
@@ -114,17 +113,12 @@ function VersionInfo({features = []}) {
 function DownloadsList({activeVersion, changeVersion}) {
     return (
         <div className='Downloads__List'>
-            <m.div 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: .5 }}
-                className={'Downloads__Tabs'}
-            >
+            <div className={'Downloads__Tabs'}>
                 <DownloadTabs 
                     activeVersion={activeVersion} 
                     changeVersion={changeVersion}
                 />
-            </m.div>
+            </div>
 
             <div 
                 className={'Downloads__ButtonsContainer'}
@@ -134,63 +128,43 @@ function DownloadsList({activeVersion, changeVersion}) {
             >
 
                 {versions[activeVersion].links.windows &&
-                    <m.div 
-                        initial={{ x: 20, opacity: 0 }}
-                        transition={{ duration: .5 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        className={'Downloads__Button'}
-                    >
+                    <div className={'Downloads__Button'}>
                         <DownloadButton
                             iconSrc={'/images/windows.svg'}
                             title={'Windows'}
                             link={versions[activeVersion].links.windows}
                         />
-                    </m.div>
+                    </div>
                 }
 
                 {versions[activeVersion].links.mac &&
-                    <m.div 
-                        initial={{ x: 20, opacity: 0 }}
-                        transition={{ duration: .5, delay: .1 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        className={'Downloads__Button'}
-                    >
+                    <div className={'Downloads__Button'}>
                         <DownloadButton 
                             iconSrc={'/images/mac.svg'}
                             title={'Mac'}
                             link={versions[activeVersion].links.mac}
                         />
-                    </m.div>
+                    </div>
                 }
 
                 {versions[activeVersion].links.linux &&
-                    <m.div
-                        initial={{ x: 20, opacity: 0 }}
-                        transition={{ duration: .5, delay: .2 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        className={'Downloads__Button'}
-                    >
+                    <div className={'Downloads__Button'}>
                         <DownloadButton 
                             iconSrc={'/images/linux.svg'}
                             title={'Linux'}
                             link={'#'}
                         />
-                    </m.div>
+                    </div>
                 }
 
                 {versions[activeVersion].links.android &&
-                    <m.div 
-                        initial={{ x: 20, opacity: 0 }}
-                        transition={{ duration: .5, delay: .3 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        className={'Downloads__Button'}
-                    >
+                    <div className={'Downloads__Button'}>
                         <DownloadButtonDouble 
                             iconSrc={'/images/android.svg'}
                             title={'Android'}
                             links={versions[activeVersion].links.android}
                         />
-                    </m.div>
+                    </div>
                 }
 
             </div>
@@ -210,14 +184,9 @@ function DownloadsWithLogo() {
                 />
             </div>
 
-            <m.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1.25, delay: .6 }}
-                className='Downloads__Logo'
-            >
+            <div className='Downloads__Logo'>
                 <img alt="electrum dash logo" src='/images/electrum-dash.svg'/>
-            </m.div>
+            </div>
       </div>
   )
 }
@@ -234,14 +203,9 @@ function DownloadsWithInfo() {
                 />
             </div>
            
-            <m.div 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1.25, delay: .6 }}
-                className='Downloads__Info'
-            >
+            <div className='Downloads__Info'>
                 <VersionInfo features={versions[activeVersion].releaseNotes}/>
-            </m.div>
+            </div>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion'
 import {ContentBlock, ContentBlockHeader, ContentBlockContent} from '@/components/containers/ContentBlock'
 import './FaqItem.scss'
@@ -25,10 +25,18 @@ const items = [
 ]
 
 
-function FaqItem({item, clickCallback, isOpen}) {
-    const extraClass = isOpen ? 'active' : ''
+function FaqItem({item, clickCallback, isOpen, initialized}) {
+    const extraClass = isOpen || !initialized ? 'active' : ''
     const contentHeight = useRef()
-  
+
+    const answerStyles = (() => { // for SEO
+        if (!initialized) return { height: 'auto' }
+
+        if (!isOpen) return { height: '0px' }
+
+        return { height: contentHeight.current.scrollHeight }
+    })()     
+
     return (
         <div className={'FaqItem ' + extraClass}>
             <h3 
@@ -38,17 +46,13 @@ function FaqItem({item, clickCallback, isOpen}) {
                 {item.question}
             </h3>
 
-            <m.div 
+            <div 
                 className={'FaqItem__Answer'}
                 ref={contentHeight}
-                style={
-                    isOpen
-                    ? { height: contentHeight.current.scrollHeight }
-                    : { height: "0px" }
-                }
+                style={answerStyles}
             >
                 {item.answer}
-            </m.div>
+            </div>
 
         </div>
     )
@@ -56,6 +60,9 @@ function FaqItem({item, clickCallback, isOpen}) {
 
 export default function Faq() {
     const [activeItem, setActiveItem] = useState(-1)
+    const [initialized, setInitialized] = useState(false)
+
+    useEffect(() => setInitialized(true));
 
     function itemClick(id) {
         if (id === activeItem) {
@@ -80,6 +87,7 @@ export default function Faq() {
                         key={'faq ' + id}
                         item={item} 
                         isOpen={activeItem === id}
+                        initialized={initialized}
                         clickCallback={() => itemClick(id)}
                     />
                 )}

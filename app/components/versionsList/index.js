@@ -29,18 +29,13 @@ const versions = [
 
 function VersionsListItem({i, date, version, description}) {
     return (
-        <m.div
-            initial={{ y: -10, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: .3, delay: i/10 }}
-            className={'VersionsListItem'}
-        >
+        <div className={'VersionsListItem'}>
             <Link href={''} className={'VersionsListItem__ContentContainer'}>
                     <div className={'VersionsListItem__Date'}>{date}</div>
                     <div className={'VersionsListItem__Version'}>{version}</div>
                     <div className={'VersionsListItem__Description'}>{description}</div>
             </Link>
-        </m.div>
+        </div>
     )
 }
 
