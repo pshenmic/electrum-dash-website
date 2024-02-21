@@ -25,11 +25,12 @@
 
     &__Question {
         position: relative;
-        padding: 0 20px;
+        padding: 12px 20px;
+        padding-right: 55px;
         font-size: 18px;
         font-weight: 500;
         margin: 0;
-        height: 67px;
+        min-height: 67px;
         display: flex;
         align-items: center;
         transition: background-color .15s;
@@ -66,6 +67,7 @@
         transition: all $def-transition-time;
         opacity: 0;
         padding: 0 20px;
+        overflow: hidden;
 
         .active & {
             opacity: 1;
@@ -73,5 +75,15 @@
         }
     }
 
+    @include md {
+        &__Question {
+            font-size: 17px;
+        }
+    }
 
+    @include sm {
+        &__Question {
+            font-size: 16px;
+        }
+    }
 }
