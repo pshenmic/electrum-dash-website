@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion as m } from 'framer-motion'
 import {ContentBlock, ContentBlockHeader, ContentBlockContent} from '@/components/containers/ContentBlock'
-import Link from 'next/link'
 import './ServersList.scss'
 import './ServersListItem.scss'
 
@@ -22,18 +21,16 @@ function ServersListItem({server, id}) {
 
     function copyAddress(address) {
         try {
-        navigator.clipboard.writeText(server.address);
-        console.log('Content copied to clipboard');
-
-        setCopyMessage(copyMessageSuccess)
+            navigator.clipboard.writeText(server.address);
+            setCopyMessage(copyMessageSuccess)
         } catch (err) {
-        setCopyMessage(copyMessageError);
+            setCopyMessage(copyMessageError);
         }
 
         setMessageVisibility(true)
 
         setTimeout(() => {
-        setMessageVisibility(false)
+            setMessageVisibility(false)
         }, 2000);
     }
 
@@ -44,30 +41,38 @@ function ServersListItem({server, id}) {
         transition={{ duration: .3, delay: id/10 }}
     >
         <div className={'ServersListItem'}>
-        <button 
-            className={'ServersListItem__CupyButton'}
-            onClick={ () => copyAddress(server.address) }
-        ></button>
-        <m.div 
-            className={'ServersListItem__Address'}
-            initial = {{opacity: 0}}
-            variants = {{
-            hidden: { opacity: 1, y:0, transition: { duration: 0.3 } },
-            visible: { opacity: 0, y: '100%', transition: { duration: 0.3 }  }
-            }}
-            animate={messageVisibility ? 'visible' : 'hidden'}
-        >{server.address}</m.div>
 
-        <m.div 
-            className={'ServersListItem__CopiedMessage'}
-            initial = {{opacity: 0}}
-            variants = {{
-            visible: { opacity: 1, y:0, transition: { duration: 0.3 } },
-            hidden: { opacity: 0, y: '-100%', transition: { duration: 0.3 }  }
-            }}
-            animate={messageVisibility ? 'visible' : 'hidden'}
-        >{ copyMessage }</m.div>
+            <button 
+                className={'ServersListItem__CupyButton'}
+                onClick={ () => copyAddress(server.address) }
+            ></button>
+
+            <m.div 
+                className={'ServersListItem__Address'}
+                initial = {{opacity: 0}}
+                variants = {{
+                    hidden: { opacity: 1, y:0, transition: { duration: 0.3 } },
+                    visible: { opacity: 0, y: '100%', transition: { duration: 0.3 }  }
+                }}
+                animate={messageVisibility ? 'visible' : 'hidden'}
+            >
+                {server.address}
+            </m.div>
+
+            <m.div 
+                className={'ServersListItem__CopiedMessage'}
+                initial = {{opacity: 0}}
+                variants = {{
+                    visible: { opacity: 1, y:0, transition: { duration: 0.3 } },
+                    hidden: { opacity: 0, y: '-100%', transition: { duration: 0.3 }  }
+                }}
+                animate={messageVisibility ? 'visible' : 'hidden'}
+            >   
+                { copyMessage }
+            </m.div>
+        
         </div>
+
     </m.div>
     )
 }

@@ -59,12 +59,23 @@
         display: flex;
         word-wrap: break-word;
         max-width: calc(100% - 30px);
+        position: relative;
+        overflow: hidden;
     }
 
     &__LineTitle {
         margin-right: 8px;
         margin-bottom: 4px;
         white-space: nowrap;
+    }
+
+    &__CopyMessage {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: #fff;
     }
 
     &__GpgContainer {
@@ -84,7 +95,6 @@
         font-size: 14px;
         line-height: 28px;
         max-width: 100%;
-
     }
 
     &__Email {
@@ -207,12 +217,6 @@
 
         &--Discord {
             background: url(/images/discord-blue.svg) no-repeat center;
-        }
-    }
-
-    @include lg-xl {
-        &__Line {
-            // flex-wrap: wrap;
         }
     }
 
