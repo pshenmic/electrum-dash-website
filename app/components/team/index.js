@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import './Team.scss'
 import './Teammate.scss'
 
-function Teammate({name, role, gpgkey, email, imgSrc, links}) {
+function Teammate({name, role, gpgkey, email, imgSrc, links, className = ''}) {
     return (
-        <div className={'Teammate'}>
+        <div className={'Teammate ' + className}>
 
             <div className={'Teammate__ImgContainer'}>
                 <img alt={name} src={imgSrc} />
@@ -17,16 +18,20 @@ function Teammate({name, role, gpgkey, email, imgSrc, links}) {
                 </div>
 
             
-                <div className={'Teammate__Line'}>
+                <div className={'Teammate__Line Teammate__Line--Gpg'}>
                     <div className={'Teammate__LineTitle'}>GPG key:</div>
-                    <div className={'Teammate__GpgKey'}>{gpgkey}</div>
-                    <button className={'Teammate__CopyButton'}></button>
+                    <div className={'Teammate__LineValue'}>
+                        <div className={'Teammate__GpgKey'}>{gpgkey}</div>
+                        <button className={'Teammate__CopyButton'}></button>
+                    </div>
                 </div>
 
                 <div className={'Teammate__Line'}>
                     <div className={'Teammate__LineTitle'}>Email:</div>
-                    <div className={'Teammate__Email'}>{email}</div>
-                    <div className={'Teammate__CopyButton'}></div>
+                    <div className={'Teammate__LineValue'}>
+                        <div className={'Teammate__Email'}>{email}</div>
+                        <div className={'Teammate__CopyButton'}></div>
+                    </div>
                 </div>
 
                 <div className={'Teammate__Links'}>
@@ -72,6 +77,21 @@ function Teammate({name, role, gpgkey, email, imgSrc, links}) {
 export default function Team() {
     return (
         <div className={'Team'}>
+            <Teammate
+                className = {'Team__Teammate'}
+                name = {'Mikhail Pshenichnikov'}
+                role = {'Maintainer'}
+                gpgkey = {'2BB6803FCF82316969619C155699884482E426AC'}
+                email = {'mail@pshenmic.dev'}
+                imgSrc = {'https://avatars.githubusercontent.com/u/17009187'}
+                links = {{
+                    website: 'https://pshenmic.dev/',
+                    github: 'https://github.com/pshenmic/',
+                    twitter: 'https://twitter.com/pshenmic',
+                    discord: 'https://discordapp.com/users/784071440864378911'
+                }}
+            />
+
             <Teammate
                 name = {'Mikhail Pshenichnikov'}
                 role = {'Maintainer'}
