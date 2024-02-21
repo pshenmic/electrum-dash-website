@@ -31,12 +31,24 @@
 }
 
 @mixin content-wrapper {
-    margin: 110px auto;
+    margin: $section-offset-xl-xl auto;
     max-width: 1000px;
     
     @include xl {
         padding-left: 20px;
         padding-right: 20px;
+    }
+
+    @include lg {
+        margin: $section-offset-lg auto;
+    }
+
+    @include md {
+        margin: $section-offset-md auto;
+    }
+
+    @include sm {
+        margin: $section-offset-sm auto;
     }
 }
 

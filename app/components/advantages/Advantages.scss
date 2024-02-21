@@ -152,6 +152,12 @@ $hover-animation-time: $def-transition-time;
                 bottom: 0;
                 opacity: 0.6;
             }
+
+            &:last-child {
+                &::before {
+                    display: none;
+                }
+            }
         }
 
         &:has(&__Item:hover)  &__Item {
