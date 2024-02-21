@@ -131,6 +131,12 @@ $hover-animation-time: $def-transition-time;
         }
 
         &__Item {
+            &::after {
+                display: none;
+            }
+        }
+
+        &__Item {
             min-height: 160px;
             height: auto;
             max-width: none;
