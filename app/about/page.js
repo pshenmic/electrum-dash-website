@@ -6,7 +6,9 @@ import './AboutPage.scss'
 
 export const metadata = {
   title: 'About',
-  description: 'Dash Electrum is a light wallet which uses powerful external servers to index the blockchain, while still securing the keys on your personal computer.'
+  description: 'Dash Electrum is a light wallet which uses powerful external servers to index the blockchain, while still securing the keys on your personal computer.',
+  keywords: ['Electrum', 'Dash', 'crypto', 'wallet', 'opensource', 'protected', ' lightweight', 'fast', 'fast speed', 'FAQ', 'F.A.Q.', 'team', 'about'],
+  applicationName: 'Electrum Dash'
 }
 
 export default function About() {

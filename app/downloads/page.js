@@ -5,7 +5,9 @@ import './DownloadsPage.scss'
 
 export const metadata = {
   title: 'Downloads',
-  description: 'Electrum Dash wallet download links for operating systems such as Windows, Mac, Linus, Android.'
+  description: 'Electrum Dash wallet download links for operating systems such as Windows, Mac, Linus, Android.',
+  keywords: ['Electrum', 'Dash', 'crypto', 'wallet', 'opensource', 'downloads', 'macos', 'windows', 'linux', 'android'],
+  applicationName: 'Electrum Dash'
 }
 
 export default function Downloads() {

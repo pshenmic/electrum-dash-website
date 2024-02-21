@@ -6,7 +6,9 @@ import 'HomePage.scss'
 
 export const metadata = {
   title: '',
-  description: 'Lightweight wallet that allows you to send, receive and mix Dash without downloading blockchain.'
+  description: 'Lightweight wallet that allows you to send, receive and mix Dash without downloading blockchain.',
+  keywords: ['Electrum', 'Dash', 'crypto', 'wallet', 'opensource', 'protected', 'lightweight', 'fast', 'fast speed'],
+  applicationName: 'Electrum Dash'
 }
 
 export default function Home() {

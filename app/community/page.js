@@ -4,7 +4,9 @@ import './CommunityPage.scss'
 
 export const metadata = {
   title: 'Community',
-  description: 'Available servers and social networks of the Electrum Dash wallet.'
+  description: 'Available servers and social networks of the Electrum Dash wallet.',
+  keywords: ['Electrum', 'Dash', 'crypto', 'wallet', 'opensource', 'community', 'servers', 'avalible servers', 'social', 'discord', 'github'],
+  applicationName: 'Electrum Dash'
 }
 
 export default function Community() {
