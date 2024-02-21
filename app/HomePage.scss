@@ -29,10 +29,6 @@
             padding: $section-offset-lg 20px;
         }
     
-        @include md {
-            // padding: $section-offset-md 20px;
-        }
-    
         @include sm {
             min-height: 50vh;
             display: flex;

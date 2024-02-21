@@ -58,7 +58,7 @@
     }
 
     &__AboutWallet, &__FAQ {
-        margin-bottom: 130px;
+        margin-bottom: $section-offset-xl;
     }
 
     @include xl {
@@ -118,7 +118,6 @@
     @include md {
         &__Navigation {
             text-align: left;
-            // padding-left: 20px;
 
             ol {
                 padding-left: 20px;
@@ -127,6 +126,16 @@
             &::after {
                 background: linear-gradient(90deg, rgba($color: $blue, $alpha: 0.7), rgba($color: $blue, $alpha: 0) );
             }
+        }
+
+        &__AboutWallet, &__FAQ, &__Team {
+            margin-bottom: $section-offset-md;
+        }
+    }
+
+    @include sm {
+        &__AboutWallet, &__FAQ, &__Team {
+            margin-bottom: $section-offset-sm;
         }
     }
 }

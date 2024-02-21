@@ -37,6 +37,7 @@
     @include xl {
         padding-left: 20px;
         padding-right: 20px;
+        max-width: auto;
     }
 
     @include lg {
