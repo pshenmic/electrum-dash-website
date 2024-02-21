@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { useRouter } from "next/router";
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import './Header.scss'
 import './Burger.scss'
@@ -16,6 +16,21 @@ const links = [
 export default function Header() {
   const path = usePathname().split('/').slice(1)
   const [activeSection] = path
+  const [MobileMenuState, setMobileMenuState] = useState(false)
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      if (window.innerWidth > 768) setMobileMenuState(false)
+    }
+
+    window.addEventListener('resize', handleWindowResize)
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize)
+    }
+  })
+
+  useEffect(()=> setMobileMenuState(false), path)
 
   return (
     <>
@@ -30,15 +45,24 @@ export default function Header() {
             </div>
           </Link>
 
-          <input id='BurgerMenu' type="checkbox" style={{display: 'none'}} />
-
-          <label htmlFor='BurgerMenu' className='Header__Burger Burger'>
+          <label
+            className={'Header__Burger Burger ' + (MobileMenuState ? 'active' : '')} 
+            onClick={()=> setMobileMenuState(!MobileMenuState)}
+          >
             <span className='Burger__Line'></span>
             <span className='Burger__Line'></span>
             <span className='Burger__Line'></span>
           </label>
 
           <nav className={'Header__Navigation'}>
+
+            {links.map((link, id) =>
+              <Link key={'NavLink' + id} className={`Header__NavigationLink ${activeSection === link.id ? 'active' : '' }`} href={link.href}>{link.title}</Link>
+            )}
+
+          </nav>
+
+          <nav className={'Header__MobileMenu ' + (MobileMenuState ? 'active' : '')}>
 
             {links.map((link, id) =>
               <Link key={'NavLink' + id} className={`Header__NavigationLink ${activeSection === link.id ? 'active' : '' }`} href={link.href}>{link.title}</Link>

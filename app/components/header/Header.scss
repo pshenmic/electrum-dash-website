@@ -55,6 +55,10 @@ $hover-animation-time: $def-transition-time;
         margin: 0 auto;
         padding: 0 20px;
     }
+    
+    &__MobileMenu {
+        display: none;
+    }
 
     &__Navigation {
         margin-right: -20px;
@@ -113,7 +117,6 @@ $hover-animation-time: $def-transition-time;
 
         &.active {
             opacity: 1;
-            // padding: 9px 20px;
             box-shadow: inset 0 1px 4px rgba(0, 0, 0, .25);
             background: linear-gradient(rgba(30,141,228, 0), rgba(30,141,228, 0.2));
 
@@ -143,11 +146,16 @@ $hover-animation-time: $def-transition-time;
     }
 
     @include lg {
+        &__Navigation {
+            display: none;
+        }
+
         &__Burger {
             display: block;
         }
 
-        &__Navigation {
+        &__MobileMenu {
+            display: block;
             visibility: hidden;
             position: absolute;
             right: 20px;
@@ -165,7 +173,7 @@ $hover-animation-time: $def-transition-time;
             transform-origin: 0 0;
             border: 1px solid rgba($color: $midnight-blue, $alpha: .4);
 
-            input:checked ~ & {
+            &.active {
                 display: block;
                 visibility: visible;
                 opacity: 1;

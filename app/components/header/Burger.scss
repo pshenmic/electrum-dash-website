@@ -36,10 +36,8 @@
         &:nth-last-child(3) {
             transform-origin: 91% 105%;
         }
-    }
 
-    input:checked ~ & & {
-        &__Line {
+        .active & {
             opacity: 1;
             transform: rotate(45deg) translate(-2px, -2px);
             background: $blue;
