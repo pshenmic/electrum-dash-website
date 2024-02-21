@@ -1,10 +1,12 @@
-"use client"
-
 import { DownloadsWithInfo } from '@/components/downloads'
 import VersionsList from '@/components/versionsList/'
 import SocialLinks from '@/components/socialLinks/'
 import './DownloadsPage.scss'
 
+export const metadata = {
+  title: 'Downloads',
+  description: 'Electrum Dash wallet download links for operating systems such as Windows, Mac, Linus, Android.'
+}
 
 export default function Downloads() {
   return (

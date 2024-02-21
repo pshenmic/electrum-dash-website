@@ -1,11 +1,13 @@
-"use client"
-
 import {ContentBlock, ContentBlockHeader, ContentBlockContent, ContentConteiner} from '@/components/containers/ContentBlock'
 import SocialLinks from '@/components/socialLinks/'
 import Team from '@/components/team/'
 import FaqBlock from '@/components/faq/'
-import { motion as m } from 'framer-motion'
 import './AboutPage.scss'
+
+export const metadata = {
+  title: 'About',
+  description: 'Dash Electrum is a light wallet which uses powerful external servers to index the blockchain, while still securing the keys on your personal computer.'
+}
 
 export default function About() {
   return (

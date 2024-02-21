@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from "react";
 import {ContentBlock, ContentBlockContent} from '@/components/containers/ContentBlock'
 import Link from 'next/link'
@@ -120,12 +122,7 @@ function DownloadsList({activeVersion, changeVersion}) {
                 />
             </div>
 
-            <div 
-                className={'Downloads__ButtonsContainer'}
-                initial={{ x: 100, opacity: 0 }}
-                transition={{ duration: .5 }}
-                whileInView={{ x: 0, opacity: 1 }}
-            >
+            <div className={'Downloads__ButtonsContainer'}>
 
                 {versions[activeVersion].links.windows &&
                     <div className={'Downloads__Button'}>

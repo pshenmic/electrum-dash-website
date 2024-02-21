@@ -1,10 +1,11 @@
-"use client"
-
 import SocialLinks from '@/components/socialLinks/'
 import ServersList from '@/components/servers/'
-import { motion as m } from 'framer-motion'
 import './CommunityPage.scss'
 
+export const metadata = {
+  title: 'Community',
+  description: 'Available servers and social networks of the Electrum Dash wallet.'
+}
 
 export default function Community() {
   return (

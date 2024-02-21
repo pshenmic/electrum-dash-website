@@ -1,5 +1,6 @@
+ "use client"
+
 import { useState, useEffect, useRef } from 'react';
-import { motion as m, AnimatePresence } from 'framer-motion'
 import {ContentBlock, ContentBlockHeader, ContentBlockContent} from '@/components/containers/ContentBlock'
 import './FaqItem.scss'
 import './Faq.scss'

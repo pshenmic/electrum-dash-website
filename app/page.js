@@ -1,10 +1,13 @@
-"use client"
-
 import Advantages from '@/components/advantages'
 import {DownloadsWithLogo} from '@/components/downloads'
 import VersionsList from '@/components/versionsList/'
 import SocialLinks from '@/components/socialLinks/'
 import 'HomePage.scss'
+
+export const metadata = {
+  title: '',
+  description: 'Lightweight wallet that allows you to send, receive and mix Dash without downloading blockchain.'
+}
 
 export default function Home() {
   return (
