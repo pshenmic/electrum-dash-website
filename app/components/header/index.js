@@ -18,18 +18,6 @@ export default function Header() {
   const [activeSection] = path
   const [MobileMenuState, setMobileMenuState] = useState(false)
 
-  useEffect(() => {
-    const handleWindowResize = () => {
-      if (window.innerWidth > 768) setMobileMenuState(false)
-    }
-
-    window.addEventListener('resize', handleWindowResize)
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResize)
-    }
-  })
-
   useEffect(()=> setMobileMenuState(false), path)
 
   return (
