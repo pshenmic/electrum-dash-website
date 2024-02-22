@@ -29,10 +29,10 @@ const versions = [
             windows: '#',
             mac: '#',
             linux: '#',
-            android: {
-                first: {title: 'armeabi v7a', href: '#'}, 
-                second: {title: 'arm64 v8a', href: '#'}
-            }
+            android: [
+                {title: 'armeabi v7a', href: '#'}, 
+                {title: 'arm64 v8a', href: '#'}
+            ]
         }
     },
     {
@@ -42,10 +42,10 @@ const versions = [
             windows: '#',
             mac: '#',
             linux: '#',
-            android: {
-                first: {title: 'armeabi v7a', href: '#'}, 
-                second: {title: 'arm64 v8a', href: '#'}
-            }
+            android: [
+                {title: 'armeabi v7a', href: '#'}, 
+                {title: 'arm64 v8a', href: '#'}
+            ]
         }
     }
 ]
@@ -65,6 +65,8 @@ function DownloadButton({iconSrc, title, link, disabled = false}) {
 }
 
 function DownloadButtonDouble({iconSrc, title, links = [], disabled = false}) {
+    const [first, second] = links
+
     return (
         <div className={'DownloadButton DownloadButton--Double ' + (disabled ? 'disabled' : '')}>
             <div className={'DownloadButton__Content'}>
@@ -75,12 +77,12 @@ function DownloadButtonDouble({iconSrc, title, links = [], disabled = false}) {
             </div>
 
             <div className={'DownloadButton__LinksContainer'}>
-                <Link className={'DownloadButton__Link'} href={links.first.href}>
-                    <div className={'DownloadButton__LinkContent'}>{links.first.title}</div>
+                <Link className={'DownloadButton__Link'} href={first.href}>
+                    <div className={'DownloadButton__LinkContent'}>{first.title}</div>
                 </Link>
 
-                <Link className={'DownloadButton__Link'} href={links.second.href}>
-                    <div className={'DownloadButton__LinkContent'}>{links.second.title}</div>
+                <Link className={'DownloadButton__Link'} href={second.href}>
+                    <div className={'DownloadButton__LinkContent'}>{second.title}</div>
                 </Link>
             </div>
         </div>
