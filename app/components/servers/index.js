@@ -2,13 +2,14 @@
 
 import { useState } from 'react';
 import { motion as m } from 'framer-motion'
-import {ContentBlock, ContentBlockHeader, ContentBlockContent} from '@/components/containers/ContentBlock'
+import { ContentBlock, ContentBlockHeader, ContentBlockContent } from '@/components/containers/ContentBlock'
+import copyToClipboard from '@/components/copyToClipboard/'
 import './ServersListItem.scss'
 
 const servers = [
     {address: 'dash-electrum.pshenmic.dev:50002'},
     {address: 'drk.p2pay.com:50002'},
-    {address: 'rnxogu42f3pq3e3oo7shqmh7mtema6c5fhhhsi54din4olzlu7vsx2id.onion:50002'},
+    {address: 'rnxogu42f3pq3e3oo7shqmh7mtema6   c5fhhhsi54din4olzlu7vsx2id.onion:50002'},
     {address: '10.20.30.37:5050'},
     {address: '109.202.30.37:4141'},
 ]
@@ -17,23 +18,27 @@ const copyMessageSuccess = 'Address was copied to clipboard'
 const copyMessageError = 'Failed to copy, sorry'
 
 function ServersListItem({server, id}) {
-    const [messageVisibility, setMessageVisibility] = useState(false)
-    const [copyMessage, setCopyMessage] = useState(copyMessageSuccess)
+    const [copyMessageState, setCopyMessageState] = useState({
+        active: false,
+        message: copyMessageSuccess
+    })
 
-    function copyAddress(address) {
-        try {
-            navigator.clipboard.writeText(address);
-            setCopyMessage(copyMessageSuccess)
-        } catch (err) {
-            setCopyMessage(copyMessageError);
-        }
+    const copyAddress = (address) => copyToClipboard(address, 
+        ((result) => {
+            setCopyMessageState(copyMessageState => ({
+                ...copyMessageState,
+                message: result ? copyMessageSuccess : copyMessageError,
+                active: true
+            }))
 
-        setMessageVisibility(true)
-
-        setTimeout(() => {
-            setMessageVisibility(false)
-        }, 2000);
-    }
+            setTimeout(() => {
+                setCopyMessageState(copyMessageState => ({
+                    ...copyMessageState,
+                    active: false
+                }))
+            }, 2000)
+        })
+    )
 
     return (
         <div className={'ServersListItem'}>
@@ -44,7 +49,7 @@ function ServersListItem({server, id}) {
             ></button>
 
             <div 
-                className={'ServersListItem__Address ' + (messageVisibility ? 'hidden' : '')}
+                className={'ServersListItem__Address ' + (copyMessageState.active ? 'hidden' : '')}
             >
                 {server.address}
             </div>
@@ -56,9 +61,9 @@ function ServersListItem({server, id}) {
                     visible: { opacity: 1, y:0, transition: { duration: 0.3 } },
                     hidden: { opacity: 0, y: '-100%', transition: { duration: 0.3 }  }
                 }}
-                animate={messageVisibility ? 'visible' : 'hidden'}
+                animate={copyMessageState.active ? 'visible' : 'hidden'}
             >   
-                { copyMessage }
+                {copyMessageState.message}
             </m.div>
         
         </div>

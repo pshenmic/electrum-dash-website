@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion as m } from 'framer-motion'
+import copyToClipboard from '@/components/copyToClipboard/'
 import Link from 'next/link'
 import './Team.scss'
 import './Teammate.scss'
@@ -10,34 +11,30 @@ const copyMessageSuccess = 'Copied to clipboard'
 const copyMessageError = 'Failed to copy, sorry'
 
 function Teammate({name, role, gpgkey, email, imgSrc, links, className = ''}) {
-    const [copyMessage, setCopyMessage] = useState(copyMessageSuccess)
     const [copyMessagesState, setCopyMessagesState] = useState({
         email: false,
-        fieldId: false
-    });
+        fieldId: false,
+        message: copyMessageSuccess
+    })
 
-    function copyText(copytext, fieldId) {
-        try {
-            navigator.clipboard.writeText(copytext);
-            setCopyMessage(copyMessageSuccess)
-        } catch (err) {
-            setCopyMessage(copyMessageError)
-        }
-
-        setCopyMessagesState(copyMessagesState => ({
-            ...copyMessagesState,
-            [fieldId]: true
-        }))
-
-        setTimeout(() => {
-
+    const copyText = (copytext, fieldId) => copyToClipboard(copytext, 
+        ((result) => {
             setCopyMessagesState(copyMessagesState => ({
                 ...copyMessagesState,
-                [fieldId]: false
+                copyMessage: result ? copyMessageSuccess : copyMessageError,
+                [fieldId]: true
             }))
-    
-        }, 2000)
-    }
+
+            setTimeout(() => {
+
+                setCopyMessagesState(copyMessagesState => ({
+                    ...copyMessagesState,
+                    [fieldId]: false
+                }))
+        
+            }, 2000)
+        })
+    )
 
     return (
         <div className={'Teammate ' + className}>
@@ -76,7 +73,7 @@ function Teammate({name, role, gpgkey, email, imgSrc, links, className = ''}) {
                             }}
                             animate={copyMessagesState.gpgkey ? 'visible' : 'hidden'}
                         >
-                            {copyMessage}
+                            {copyMessagesState.message}
                         </m.div>
 
                     </div>
@@ -104,7 +101,7 @@ function Teammate({name, role, gpgkey, email, imgSrc, links, className = ''}) {
                             }}
                             animate={copyMessagesState.email ? 'visible' : 'hidden'}
                         >
-                            {copyMessage}
+                            {copyMessagesState.message}
                         </m.div>
                     </div>
                 </div>
