@@ -57,7 +57,7 @@ export default function Header() {
           <nav className={'Header__Navigation'}>
 
             {links.map((link, id) =>
-              <Link key={'NavLink' + id} className={`Header__NavigationLink ${activeSection === link.id ? 'active' : '' }`} href={link.href}>{link.title}</Link>
+              <Link key={id} className={`Header__NavigationLink ${activeSection === link.id ? 'active' : '' }`} href={link.href}>{link.title}</Link>
             )}
 
           </nav>
@@ -65,7 +65,7 @@ export default function Header() {
           <nav className={'Header__MobileMenu ' + (MobileMenuState ? 'active' : '')}>
 
             {links.map((link, id) =>
-              <Link key={'NavLink' + id} className={`Header__NavigationLink ${activeSection === link.id ? 'active' : '' }`} href={link.href}>{link.title}</Link>
+              <Link key={id} className={`Header__NavigationLink ${activeSection === link.id ? 'active' : '' }`} href={link.href}>{link.title}</Link>
             )}
 
           </nav>

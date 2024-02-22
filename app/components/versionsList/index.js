@@ -58,7 +58,7 @@ export default function VersionsList({amount = null}) {
                     {elements.map((version, id) =>
                         <VersionsListItem 
                             i={id}
-                            key={'version' + id}
+                            key={id}
                             date={version.date}
                             version={version.version}
                             description={version.description}

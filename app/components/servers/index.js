@@ -78,7 +78,7 @@ export default function ServersList() {
                 <div className={'ServersList'}>
                 
                     {servers.map((server, id) =>
-                        <ServersListItem server={server} id={id} key={'server' + id}/>
+                        <ServersListItem server={server} id={id} key={id}/>
                     )}
 
                 </div>

@@ -80,7 +80,7 @@ export default function Faq() {
 
                 {items.map((item, id) => 
                     <FaqItem 
-                        key={'faq ' + id}
+                        key={id}
                         item={item} 
                         isOpen={activeItem === id}
                         initialized={initialized}

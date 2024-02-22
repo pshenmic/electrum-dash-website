@@ -81,7 +81,7 @@ function DownloadTabs({activeVersion, changeVersion}) {
 
             {versions.map((version, id) =>
                 <div 
-                    key={'VersionTab' + id}
+                    key={id}
                     className={'DownloadTabs__Tab ' + (activeVersion === id ? 'active' : '') } 
                     onClick={() => changeVersion(id)}
                 >
@@ -101,7 +101,7 @@ function VersionInfo({features = []}) {
                     <div className={'VersionInfo__List'}>
                         <ul>
                             {features.map((feature, id) =>
-                                <li key={'feature' + id}>
+                                <li key={id}>
                                     {feature}
                                 </li>
                             )}
