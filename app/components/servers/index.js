@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion as m } from 'framer-motion'
 import {ContentBlock, ContentBlockHeader, ContentBlockContent} from '@/components/containers/ContentBlock'
-import './ServersList.scss'
 import './ServersListItem.scss'
 
 const servers = [
