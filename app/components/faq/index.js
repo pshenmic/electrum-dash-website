@@ -64,7 +64,7 @@ function FaqItem({item, clickCallback, isOpen, initialized}) {
 }
 
 export default function Faq() {
-    const [activeItem, setActiveItem] = useState(-1)
+    const [activeItem, setActiveItem] = useState(null)
     const [initialized, setInitialized] = useState(false)
 
     useEffect(() => setInitialized(true), [])
