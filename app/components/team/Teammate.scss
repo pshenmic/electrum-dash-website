@@ -60,21 +60,12 @@
         word-wrap: break-word;
         max-width: calc(100% - 30px);
         position: relative;
-        overflow: hidden;
     }
 
     &__LineTitle {
         margin-right: 8px;
         margin-bottom: 4px;
         white-space: nowrap;
-    }
-
-    &__CopyMessage {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
     }
 
     &__GpgContainer {
@@ -110,56 +101,11 @@
     &__CopyButton {
         position: relative;
         z-index: 1;
-        background: transparent;
         border: none;
         width: 28px;
         height: 28px;
         margin: 0 4px;
         flex-shrink: 0;
-
-        &:hover {
-            cursor: pointer;
-
-            &::before {
-                background-color: rgba($color: $blue, $alpha: .1) ;
-                border-radius: $def-border-radius;
-                width: 24px;
-                height: 24px;
-            }
-
-            &::after {
-                opacity: 1;
-            }
-        }
-
-        &::before {
-            content: '';
-            position: absolute;
-            z-index: -1;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 0;
-            height: 0;
-            background-color: transparent;
-            transition: all $def-transition-time $inertial-transition-function;
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            z-index: -1;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 16px;
-            height: 16px;
-            background-image: url("/images/copy.svg");
-            background-repeat: no-repeat;
-            background-size: contain;
-            opacity: .5;
-            transition: opacity $def-transition-time;
-        }
     }    
 
     &__Links {

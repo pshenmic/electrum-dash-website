@@ -1,9 +1,7 @@
 'use client'
 
-import { useState } from 'react';
-import { motion as m } from 'framer-motion'
 import { ContentBlock, ContentBlockHeader, ContentBlockContent } from '@/components/containers/ContentBlock'
-import copyToClipboard from '@/components/copyToClipboard/'
+import CopyButton from '@/components/copyButton'
 import './ServersListItem.scss'
 
 const servers = [
@@ -14,57 +12,18 @@ const servers = [
     {address: '109.202.30.37:4141'},
 ]
   
-const copyMessageSuccess = 'Address was copied to clipboard'
-const copyMessageError = 'Failed to copy, sorry'
 
 function ServersListItem({server, id}) {
-    const [copyMessageState, setCopyMessageState] = useState({
-        active: false,
-        message: copyMessageSuccess
-    })
-
-    const copyAddress = (address) => copyToClipboard(address, 
-        ((result) => {
-            setCopyMessageState(copyMessageState => ({
-                ...copyMessageState,
-                message: result ? copyMessageSuccess : copyMessageError,
-                active: true
-            }))
-
-            setTimeout(() => {
-                setCopyMessageState(copyMessageState => ({
-                    ...copyMessageState,
-                    active: false
-                }))
-            }, 2000)
-        })
-    )
-
     return (
         <div className={'ServersListItem'}>
 
-            <button 
-                className={'ServersListItem__CupyButton'}
-                onClick={ () => copyAddress(server.address) }
-            ></button>
+            <CopyButton text={server.address}/>
 
             <div 
-                className={'ServersListItem__Address ' + (copyMessageState.active ? 'hidden' : '')}
+                className={'ServersListItem__Address'}
             >
                 {server.address}
             </div>
-
-            <m.div 
-                className={'ServersListItem__CopiedMessage'}
-                initial = {{opacity: 0}}
-                variants = {{
-                    visible: { opacity: 1, y:0, transition: { duration: 0.3 } },
-                    hidden: { opacity: 0, y: '-100%', transition: { duration: 0.3 }  }
-                }}
-                animate={copyMessageState.active ? 'visible' : 'hidden'}
-            >   
-                {copyMessageState.message}
-            </m.div>
         
         </div>
     )
