@@ -174,7 +174,7 @@ function DownloadsBlock({format = 'info'}) {
     const [activeVersion, setActiveVersion] = useState(0)
 
     return (
-        <div className={'Downloads Downloads--Logo'}>
+        <div className={'Downloads ' + (format === 'info' ? 'Downloads--Info' : '')}>
 
             <div className="Downloads__ListContainer">
                 <DownloadsList 
