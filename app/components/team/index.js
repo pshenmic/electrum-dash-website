@@ -1,5 +1,6 @@
 "use client"
 
+import Image from 'next/image'
 import CopyButton from '@/components/copyButton'
 import Link from 'next/link'
 import './Team.scss'
@@ -11,7 +12,7 @@ function Teammate({name, role, gpgkey, email, imgSrc, links, className = ''}) {
         <div className={'Teammate ' + className}>
 
             <div className={'Teammate__ImgContainer'}>
-                <img alt={name} src={imgSrc} />
+                <Image alt={name} src={imgSrc} width={150} height={150} />
             </div>
 
             <div className={'Teammate__InfoContainer'}>
@@ -104,7 +105,7 @@ export default function Team() {
                 role = {'Maintainer'}
                 gpgkey = {'2BB6803FCF82316969619C155699884482E426AC'}
                 email = {'mail@pshenmic.dev'}
-                imgSrc = {'https://avatars.githubusercontent.com/u/17009187'}
+                imgSrc = {'/images/pshenmic_avatar.jpg'}
                 links = {{
                     website: 'https://pshenmic.dev/',
                     github: 'https://github.com/pshenmic/',

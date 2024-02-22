@@ -1,4 +1,4 @@
-import { motion as m, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 import './Advantages.scss'
 import './AdvantagesItem.scss'
 
@@ -6,7 +6,7 @@ function AdvantagesItem({title, description, imgSrc}) {
   return (
     <div className={'AdvantagesItem'}>
       <div className={'AdvantagesItem__ImgContainer'}>
-        <img className={'AdvantagesItem__Img'} alt={ title } src={ imgSrc } />
+        <Image className={'AdvantagesItem__Img'} alt={ title } src={ imgSrc } width={110} height={110} />
       </div>
       <div className={'AdvantagesItem__ContentContainer'}>
         <h2 className={'AdvantagesItem__Title'}>{ title }</h2>

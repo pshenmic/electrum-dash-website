@@ -1,7 +1,8 @@
 'use client'
 
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { useState, useEffect, useRef  } from 'react'
+import { useEffect, useRef  } from 'react'
 import Link from 'next/link'
 import './Header.scss'
 import './Burger.scss'
@@ -28,7 +29,7 @@ export default function Header() {
       <header className={'Header'}>
         <div className={'Header__ContentContainer'}>
           <Link className={'Header__LogoContainer'} href="/">
-            <img className={'Header__Logo'} src='./images/electrum-dash.svg'/>
+            <Image className={'Header__Logo'} src='./images/electrum-dash.svg' alt='Electrum dash logo' width={50} height={50}/>
 
             <div className={'Header__Title'}>
               Electrum Dash

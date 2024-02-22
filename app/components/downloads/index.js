@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from "react";
 import {ContentBlock, ContentBlockContent} from '@/components/containers/ContentBlock'
 import Link from 'next/link'
@@ -28,10 +29,10 @@ const versions = [
             windows: '#',
             mac: '#',
             linux: '#',
-            // android: {
-            //     first: {title: 'armeabi v7a', href: '#'}, 
-            //     second: {title: 'arm64 v8a', href: '#'}
-            // }
+            android: {
+                first: {title: 'armeabi v7a', href: '#'}, 
+                second: {title: 'arm64 v8a', href: '#'}
+            }
         }
     },
     {
@@ -41,10 +42,10 @@ const versions = [
             windows: '#',
             mac: '#',
             linux: '#',
-            // android: {
-            //     first: {title: 'armeabi v7a', href: '#'}, 
-            //     second: {title: 'arm64 v8a', href: '#'}
-            // }
+            android: {
+                first: {title: 'armeabi v7a', href: '#'}, 
+                second: {title: 'arm64 v8a', href: '#'}
+            }
         }
     }
 ]
@@ -54,7 +55,9 @@ function DownloadButton({iconSrc, title, link}) {
     return (
         <Link href={link} className='DownloadButton'>
             <div className='DownloadButton__Content'>
-                <img src={iconSrc}/>
+                <picture>
+                    <img src={iconSrc} alt='Download button icon' />
+                </picture>
                 <div className={'DownloadButton__Title'}>{title}</div>
             </div>
         </Link>
@@ -65,7 +68,9 @@ function DownloadButtonDouble({iconSrc, title, links = []}) {
     return (
         <div className='DownloadButton DownloadButton--Double'>
             <div className='DownloadButton__Content'>
-                <img src={iconSrc}/>
+                <picture>
+                    <img src={iconSrc} alt='Download button icon' />
+                </picture>
                 <div className={'DownloadButton__Title'}>{title}</div>
             </div>
 
@@ -191,7 +196,7 @@ function DownloadsBlock({format = 'info'}) {
 
             {(format === 'logo') &&
                 <div className='Downloads__Logo'>
-                    <img alt="electrum dash logo" src='/images/electrum-dash.svg'/>
+                    <Image alt="electrum dash logo" src='/images/electrum-dash.svg'width={0} height={0}/>
                 </div>
             }
 
