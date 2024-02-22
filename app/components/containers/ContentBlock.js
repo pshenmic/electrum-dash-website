@@ -34,9 +34,9 @@ function ContentBlockContent({children, className = ''}) {
   )
 }
 
-function ContentConteiner({children, className = ''}) {
+function ContentContainer({children, className = ''}) {
   return (
-      <div className={'ContentBlock__ContentConteiner ' + className}>
+      <div className={'ContentBlock__ContentContainer ' + className}>
         { children }
       </div>
   )
@@ -48,5 +48,5 @@ export {
   ContentBlockHeader, 
   ContentBlockContent, 
   ContentBlockTitle,
-  ContentConteiner
+  ContentContainer
 }

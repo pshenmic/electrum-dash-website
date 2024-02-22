@@ -44,7 +44,7 @@
         }
     }
 
-    &__ContentConteiner {
+    &__ContentContainer {
         display: flex;
     }
 
@@ -64,7 +64,7 @@
     @include xl {
         margin-top: 0;
 
-        &__ContentConteiner {
+        &__ContentContainer {
             flex-wrap: wrap;
         }
 

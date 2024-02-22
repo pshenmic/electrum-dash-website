@@ -1,4 +1,4 @@
-import {ContentBlock, ContentBlockHeader, ContentBlockContent, ContentConteiner} from '@/components/containers/ContentBlock'
+import {ContentBlock, ContentBlockHeader, ContentBlockContent, ContentContainer} from '@/components/containers/ContentBlock'
 import SocialLinks from '@/components/socialLinks/'
 import Team from '@/components/team/'
 import FaqBlock from '@/components/faq/'
@@ -15,7 +15,7 @@ export default function About() {
   return (
     <main className={'AboutPage'}>
 
-      <div className={'AboutPage__ContentConteiner'}>
+      <div className={'AboutPage__ContentContainer'}>
         
         <nav className={"AboutPage__Navigation"}>
           <h2>Page sections</h2>
@@ -39,7 +39,7 @@ export default function About() {
                 </ContentBlockHeader>
 
                 <ContentBlockContent>
-                  <ContentConteiner> 
+                  <ContentContainer> 
                     Dash Electrum is a light wallet which uses powerful external servers 
                     to index the blockchain, while still securing the keys on your personal computer. 
                     Transactions are verified on the Dash blockchain using a technique 
@@ -53,7 +53,7 @@ export default function About() {
                     Dash Electrum is a fork of the Electrum wallet for Bitcoin. While this documentation focuses on using Dash Electrum, 
                     full documentation of all Bitcoin Electrum features (mostly identical in Dash Electrum) 
                     is available at the official documentation site.
-                  </ContentConteiner>
+                  </ContentContainer>
                 </ContentBlockContent>
 
             </ContentBlock>
