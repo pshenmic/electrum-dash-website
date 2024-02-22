@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef  } from 'react'
 import Link from 'next/link'
 import './Header.scss'
 import './Burger.scss'
@@ -15,10 +15,12 @@ const links = [
 
 export default function Header() {
   const path = usePathname().split('/').slice(1)
+  const mobileMenuSwitcher = useRef(null);
   const [activeSection] = path
-  const [MobileMenuState, setMobileMenuState] = useState(false)
 
-  useEffect(()=> setMobileMenuState(false), path)
+  useEffect(()=> {
+    mobileMenuSwitcher.current.checked = false
+  }, path)
 
   return (
     <>
@@ -33,9 +35,16 @@ export default function Header() {
             </div>
           </Link>
 
+          <input 
+            id='MobileMenu' 
+            ref={mobileMenuSwitcher}
+            type='checkbox' 
+            style={{display: 'none'}}
+          />
+
           <label
-            className={'Header__Burger Burger ' + (MobileMenuState ? 'active' : '')} 
-            onClick={()=> setMobileMenuState(!MobileMenuState)}
+            htmlFor={'MobileMenu'}
+            className={'Header__Burger Burger'} 
           >
             <span className='Burger__Line'></span>
             <span className='Burger__Line'></span>
@@ -50,7 +59,7 @@ export default function Header() {
 
           </nav>
 
-          <nav className={'Header__MobileMenu ' + (MobileMenuState ? 'active' : '')}>
+          <nav className={'Header__MobileMenu'}>
 
             {links.map((link, id) =>
               <Link key={id} className={`Header__NavigationLink ${activeSection === link.id ? 'active' : '' }`} href={link.href}>{link.title}</Link>

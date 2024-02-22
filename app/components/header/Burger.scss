@@ -36,8 +36,10 @@
         &:nth-last-child(3) {
             transform-origin: 91% 105%;
         }
+    }
 
-        .active & {
+    input#MobileMenu:checked ~ & & {
+        &__Line {
             opacity: 1;
             transform: rotate(45deg) translate(-2px, -2px);
             background: $blue;
