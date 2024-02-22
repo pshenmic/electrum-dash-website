@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.ServersListItem {
+    @include def-list-item;
+
+    &__Address {
+        word-wrap: break-word;
+        max-width: calc(100% - 60px);
+        transition: all $def-transition-time;
+        transition-timing-function: $inertial-transition-function;
+        transform: translateY(0);
+
+        &.hidden {
+            opacity: 0;
+            transform: translateY(5px);
+        }
+    }
+}
