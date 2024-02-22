@@ -67,7 +67,7 @@ export default function Faq() {
     const [activeItem, setActiveItem] = useState(-1)
     const [initialized, setInitialized] = useState(false)
 
-    useEffect(() => setInitialized(true));
+    useEffect(() => setInitialized(true), [])
 
     function itemClick(id) {
         if (id === activeItem) {
