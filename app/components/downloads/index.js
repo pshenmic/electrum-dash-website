@@ -43,6 +43,7 @@ const versions = [
     }
 ]
 
+
 function DownloadButton({iconSrc, title, link}) {
     return (
         <Link href={link} className='DownloadButton'>
@@ -169,43 +170,34 @@ function DownloadsList({activeVersion, changeVersion}) {
     )
 }
 
-function DownloadsWithLogo() {
-    const [activeVersion, setActiveVersion] = useState(0)
-
-  return (
-      <div className={'Downloads Downloads--Logo'}>
-            <div className="Downloads__ListContainer">
-                <DownloadsList 
-                    activeVersion={activeVersion}
-                    changeVersion={setActiveVersion}
-                />
-            </div>
-
-            <div className='Downloads__Logo'>
-                <img alt="electrum dash logo" src='/images/electrum-dash.svg'/>
-            </div>
-      </div>
-  )
-}
-
-function DownloadsWithInfo() {
+function DownloadsBlock({format = 'info'}) {
     const [activeVersion, setActiveVersion] = useState(0)
 
     return (
-        <div className={'Downloads Downloads--Info'}>
+        <div className={'Downloads Downloads--Logo'}>
+
             <div className="Downloads__ListContainer">
                 <DownloadsList 
                     activeVersion={activeVersion}
                     changeVersion={setActiveVersion}
                 />
             </div>
-           
-            <div className='Downloads__Info'>
-                <VersionInfo features={versions[activeVersion].releaseNotes}/>
-            </div>
+
+            {(format === 'logo') &&
+                <div className='Downloads__Logo'>
+                    <img alt="electrum dash logo" src='/images/electrum-dash.svg'/>
+                </div>
+            }
+
+            {(format === 'info') &&
+                <div className='Downloads__Info'>
+                    <VersionInfo features={versions[activeVersion].releaseNotes}/>
+                </div>
+            }
+
         </div>
     )
 }
 
 
-export {DownloadsWithLogo, DownloadsWithInfo}
+export { DownloadsBlock }

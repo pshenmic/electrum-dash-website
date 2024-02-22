@@ -1,5 +1,5 @@
 import Advantages from '@/components/advantages'
-import {DownloadsWithLogo} from '@/components/downloads'
+import { DownloadsBlock } from '@/components/downloads'
 import VersionsList from '@/components/versionsList/'
 import SocialLinks from '@/components/socialLinks/'
 import 'HomePage.scss'
@@ -24,7 +24,7 @@ export default function Home() {
       </section>
 
       <section className={'HomePage__Downloads'}>
-        <DownloadsWithLogo/>
+        <DownloadsBlock format={'logo'}/>
       </section>
 
       <section className={'HomePage__LastUpdates'}>
