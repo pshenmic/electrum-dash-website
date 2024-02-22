@@ -1,0 +1,99 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.CopyButton {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+    overflow: visible;
+
+    &:hover {
+        cursor: pointer;
+
+        &::before {
+            background-color: rgba($color: $blue, $alpha: .1) ;
+            border-radius: $def-border-radius;
+            width: 90%;
+            height: 90%;
+        }
+
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        background-color: transparent;
+
+        transition: all $def-transition-time $inertial-transition-function;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 16px;
+        height: 16px;
+        background-image: url("/images/copy.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: .5;
+        transition: opacity $def-transition-time;
+    }
+
+    &__Message {
+        position: absolute;
+        top: -28px;
+        left: 50%;
+        z-index: 10;
+        transform: translateX(-50%);
+        width: max-content;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 1px 5px rgba($color: #000000, $alpha: .3);
+        padding: 4px 10px;
+        -webkit-user-select: none;
+        -ms-user-select: none; 
+        user-select: none;
+
+        visibility: hidden;
+        opacity: 0;
+        transition: all $def-transition-time;
+        transition-timing-function: $inertial-transition-function;
+
+        &.active {
+            visibility: visible;
+            opacity: 1;
+            top: -34px;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 8px 5px 0 5px;
+            border-color: #cdcdcd transparent transparent transparent;
+            bottom: -8px;
+        }
+    }
+}

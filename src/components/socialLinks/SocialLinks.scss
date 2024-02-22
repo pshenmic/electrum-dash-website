@@ -1,0 +1,47 @@
+@import '../../styles/variables.scss';
+
+$hover-animation-time: $def-transition-time;
+
+.SocialLinks {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: $blue;
+        width: calc(100% + 40px);
+        height: 20px;   
+        border-radius: 50%;
+        filter: blur(4px);
+        z-index: -1;
+        opacity: .3;
+    }
+
+    &__Item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 42px;
+        width: 42px;
+        display: inline-block;
+        margin: 0 4px;
+        transform: scale(1);
+        transition: all $hover-animation-time $inertial-transition-function;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+
+        img {
+            height: 38px;
+            width: 42px;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+
+.Faq {
+    &__Content {
+        padding: 0 !important;
+        overflow: hidden;
+    }
+}
