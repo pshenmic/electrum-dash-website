@@ -28,7 +28,10 @@ const versions = [
             windows: '#',
             mac: '#',
             linux: '#',
-            android: [{title: 'armeabi v7a', href: '#'}, {title: 'arm64 v8a', href: '#'}]
+            // android: {
+            //     first: {title: 'armeabi v7a', href: '#'}, 
+            //     second: {title: 'arm64 v8a', href: '#'}
+            // }
         }
     },
     {
@@ -38,7 +41,10 @@ const versions = [
             windows: '#',
             mac: '#',
             linux: '#',
-            android: [{title: 'armeabi v7a', href: '#'}, {title: 'arm64 v8a', href: '#'}]
+            // android: {
+            //     first: {title: 'armeabi v7a', href: '#'}, 
+            //     second: {title: 'arm64 v8a', href: '#'}
+            // }
         }
     }
 ]
@@ -64,12 +70,12 @@ function DownloadButtonDouble({iconSrc, title, links = []}) {
             </div>
 
             <div className={'DownloadButton__LinksContainer'}>
-                <Link className={'DownloadButton__Link'} href={links[0].href}>
-                    <div className={'DownloadButton__LinkContent'}>{links[0].title}</div>
+                <Link className={'DownloadButton__Link'} href={links.first.href}>
+                    <div className={'DownloadButton__LinkContent'}>{links.first.title}</div>
                 </Link>
 
-                <Link className={'DownloadButton__Link'} href={links[1].href}>
-                    <div className={'DownloadButton__LinkContent'}>{links[1].title}</div>
+                <Link className={'DownloadButton__Link'} href={links.second.href}>
+                    <div className={'DownloadButton__LinkContent'}>{links.second.title}</div>
                 </Link>
             </div>
         </div>
