@@ -2,7 +2,7 @@ import Advantages from '@/components/advantages'
 import { DownloadsBlock } from '@/components/downloads'
 import VersionsList from '@/components/versionsList/'
 import SocialLinks from '@/components/socialLinks/'
-import 'HomePage.scss'
+import './HomePage.scss'
 
 export const metadata = {
   title: '',
