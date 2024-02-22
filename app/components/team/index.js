@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { useState } from 'react'
 import { motion as m } from 'framer-motion'
 import Link from 'next/link'
 import './Team.scss'
@@ -21,7 +21,7 @@ function Teammate({name, role, gpgkey, email, imgSrc, links, className = ''}) {
             navigator.clipboard.writeText(copytext);
             setCopyMessage(copyMessageSuccess)
         } catch (err) {
-            setCopyMessage(copyMessageError);
+            setCopyMessage(copyMessageError)
         }
 
         setCopyMessagesState(copyMessagesState => ({
@@ -36,7 +36,7 @@ function Teammate({name, role, gpgkey, email, imgSrc, links, className = ''}) {
                 [fieldId]: false
             }))
     
-        }, 2000);
+        }, 2000)
     }
 
     return (
@@ -121,7 +121,7 @@ function Teammate({name, role, gpgkey, email, imgSrc, links, className = ''}) {
 
                     {(links.github &&
                         <Link 
-                            href={links.website} 
+                            href={links.github} 
                             target="_blank" 
                             className="Teammate__Link Teammate__Link--Github">
                         </Link>
@@ -129,13 +129,13 @@ function Teammate({name, role, gpgkey, email, imgSrc, links, className = ''}) {
 
                     {(links.twitter &&
                         <Link 
-                            href={links.website} 
+                            href={links.twitter} 
                             target="_blank" 
                             className="Teammate__Link Teammate__Link--Twitter">
                         </Link>
                     )}
 
-                    {(links.twitter &&
+                    {(links.discord &&
                         <Link 
                             href={links.discord} 
                             target="_blank" 
