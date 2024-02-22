@@ -84,7 +84,7 @@ export default function Faq() {
                         item={item} 
                         isOpen={activeItem === id}
                         initialized={initialized}
-                        clickCallback={() => id === activeItem ? setActiveItem(-1) : setActiveItem(id)}
+                        clickCallback={() => id === activeItem ? setActiveItem(null) : setActiveItem(id)}
                     />
                 )}
 
