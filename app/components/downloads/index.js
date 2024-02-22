@@ -51,10 +51,10 @@ const versions = [
 ]
 
 
-function DownloadButton({iconSrc, title, link}) {
+function DownloadButton({iconSrc, title, link, disabled = false}) {
     return (
-        <Link href={link} className='DownloadButton'>
-            <div className='DownloadButton__Content'>
+        <Link href={link} className={'DownloadButton '  + (disabled ? 'disabled' : '')}>
+            <div className={'DownloadButton__Content'}>
                 <picture>
                     <img src={iconSrc} alt='Download button icon' />
                 </picture>
@@ -64,10 +64,10 @@ function DownloadButton({iconSrc, title, link}) {
     )
 }
 
-function DownloadButtonDouble({iconSrc, title, links = []}) {
+function DownloadButtonDouble({iconSrc, title, links = [], disabled = false}) {
     return (
-        <div className='DownloadButton DownloadButton--Double'>
-            <div className='DownloadButton__Content'>
+        <div className={'DownloadButton DownloadButton--Double ' + (disabled ? 'disabled' : '')}>
+            <div className={'DownloadButton__Content'}>
                 <picture>
                     <img src={iconSrc} alt='Download button icon' />
                 </picture>
@@ -172,6 +172,7 @@ function DownloadsList({activeVersion, changeVersion}) {
                             iconSrc={'/images/android.svg'}
                             title={'Android'}
                             links={versions[activeVersion].links.android}
+                            disabled={true}
                         />
                     </div>
                 }

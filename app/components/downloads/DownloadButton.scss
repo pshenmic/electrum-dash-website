@@ -18,6 +18,18 @@ $hover-animation-time: $def-transition-time;
     -ms-user-select: none; 
     user-select: none; 
 
+    &.disabled {
+        background: #f7f7f7;
+
+        &:hover {
+            cursor: default;
+        }
+
+        img {
+            opacity: .6;
+        }
+    }
+
     &::before, &::after, &__Link::before, &__Link::after {
         content: '';
         display: block;
@@ -29,6 +41,12 @@ $hover-animation-time: $def-transition-time;
         transition: all $hover-animation-time, opacity .5s;
         filter: blur(34px);
         opacity: 0;
+    }
+
+    &.disabled  {
+        &::before, &::after {
+            display: none;
+        }
     }
 
     &::before, &__Link::before {
@@ -43,10 +61,17 @@ $hover-animation-time: $def-transition-time;
 
     &:hover, &__Link:hover {
         cursor: pointer;
-        box-shadow: inset 0 1px 8px rgba(0, 0, 0, .25);
+
+        &:not(.disabled) {
+            box-shadow: inset 0 1px 8px rgba(0, 0, 0, .25);
+        }
 
         &::before, &::after {
             opacity: 1;
+
+            .disabled & {
+                display: none;
+            }
         }
 
         &::before {
@@ -64,7 +89,7 @@ $hover-animation-time: $def-transition-time;
             visibility: visible;
         }
 
-        &__Content {
+        &:not(.disabled) &__Content {
             opacity: 0;
         }
     }
@@ -94,6 +119,10 @@ $hover-animation-time: $def-transition-time;
             height: 100%;
             opacity: 0;
             transition: all $hover-animation-time;
+
+            .disabled & {
+                display: none;
+            }
         }
 
         &:hover {
@@ -116,6 +145,10 @@ $hover-animation-time: $def-transition-time;
     &__Title {
         text-align: center;
         width: 100%;
+
+        .disabled & {
+            opacity: .7;
+        }
     }
 
     &__LinksContainer {
@@ -129,6 +162,10 @@ $hover-animation-time: $def-transition-time;
         opacity: 0;
         visibility: hidden;
         transition: all $hover-animation-time;
+
+        .disabled & {
+            display: none;
+        }
     }
 
     &__LinkContent {
