@@ -69,15 +69,6 @@ export default function Faq() {
 
     useEffect(() => setInitialized(true), [])
 
-    function itemClick(id) {
-        if (id === activeItem) {
-            setActiveItem(-1)
-            return
-        }
-
-        setActiveItem(id)
-    }
-
     return (
         <ContentBlock externalHeader={true} className={'Faq'}>
 
@@ -93,7 +84,7 @@ export default function Faq() {
                         item={item} 
                         isOpen={activeItem === id}
                         initialized={initialized}
-                        clickCallback={() => itemClick(id)}
+                        clickCallback={() => id === activeItem ? setActiveItem(-1) : setActiveItem(id)}
                     />
                 )}
 
