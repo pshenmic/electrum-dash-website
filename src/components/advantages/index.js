@@ -22,7 +22,7 @@ export default function Advantages() {
       <div className={'Advantages__Item'}>
           <AdvantagesItem
             title = {'Protected'}
-            description = {'Dash Electrum client never sends private keys to the servers. Only you will have access to the funds.'}
+            description = {'Electrum Dash client never sends private keys to the servers. Only you will have access to the funds.'}
             imgSrc = {'/images/shield.svg'}
           />
       </div>
@@ -34,7 +34,7 @@ export default function Advantages() {
             imgSrc = {'/images/open-source.svg'}
           />
       </div>
-      
+
       <div className={'Advantages__Item'}>
           <AdvantagesItem
             title = {'Lightweight'}

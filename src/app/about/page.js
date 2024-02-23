@@ -6,7 +6,7 @@ import './AboutPage.scss'
 
 export const metadata = {
   title: 'About',
-  description: 'Dash Electrum is a light wallet which uses powerful external servers to index the blockchain, while still securing the keys on your personal computer.',
+  description: 'Electrum Dash is a light wallet which uses powerful external servers to index the blockchain, while still securing the keys on your personal computer.',
   keywords: ['Electrum', 'Dash', 'crypto', 'wallet', 'opensource', 'protected', ' lightweight', 'fast', 'fast speed', 'FAQ', 'F.A.Q.', 'team', 'about'],
   applicationName: 'Electrum Dash'
 }
@@ -16,10 +16,10 @@ export default function About() {
     <main className={'AboutPage'}>
 
       <div className={'AboutPage__ContentContainer'}>
-        
+
         <nav className={"AboutPage__Navigation"}>
           <h2>Page sections</h2>
-          
+
           <ol>
             <li><a href="#AboutWallet">About wallet</a></li>
             <li><a href="#FAQ">F.A.Q.</a></li>
@@ -39,19 +39,19 @@ export default function About() {
                 </ContentBlockHeader>
 
                 <ContentBlockContent>
-                  <ContentContainer> 
-                    Dash Electrum is a light wallet which uses powerful external servers 
-                    to index the blockchain, while still securing the keys on your personal computer. 
-                    Transactions are verified on the Dash blockchain using a technique 
-                    called Secure Payment Verification (SPV), 
-                    which only requires the block headers and not the full block. 
-                    This means that wallet startup is almost instant, while still keeping your 
-                    funds secure and mobile. Dash Electrum also supports advanced InstantSend, CoinJoin 
+                  <ContentContainer>
+                    Electrum Dash is a light wallet which uses powerful external servers
+                    to index the blockchain, while still securing the keys on your personal computer.
+                    Transactions are verified on the Dash blockchain using a technique
+                    called Secure Payment Verification (SPV),
+                    which only requires the block headers and not the full block.
+                    This means that wallet startup is almost instant, while still keeping your
+                    funds secure and mobile. Electrum Dash also supports advanced InstantSend, CoinJoin
                     and masternode features.
                     <br/><br/>
                     The wallet was developed via funding of Dash DAO and currently maintained by Dash Incubator.
-                    Dash Electrum is a fork of the Electrum wallet for Bitcoin. While this documentation focuses on using Dash Electrum,
-                    full documentation of all Bitcoin Electrum features (mostly identical in Dash Electrum)
+                    Electrum Dash is a fork of the Electrum wallet for Bitcoin. While this documentation focuses on using Electrum Dash,
+                    full documentation of all Bitcoin Electrum features (mostly identical in Electrum Dash)
                     is available at the official documentation site.
                   </ContentContainer>
                 </ContentBlockContent>
