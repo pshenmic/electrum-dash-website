@@ -10,40 +10,46 @@ import './DownloadTabs.scss'
 import './VersionInfo.scss'
 
 const ltsReleaseNotes = [
-    'Trezor plugin: allow skip session clear on wallet close',
-    'Storage: more write attempts, write attempts GUI',
-    'Simple_config.py: fix FEERATE_STATIC_VALUES not to be less 1000'
+    'Upgrade project to Python 3.10',
+    'Fix Masternode payouts on Dash Core v20',
+    'Fix PrivateSend feature',
+    'Fix Windows builds',
+    'Dropped Windows x86 support',
+    'Upgraded Tor Proxy bundle in the Windows binaries to the latest version (Tor Expert Bundle 13.0.8)',
 ]
 
 const currentReleaseNotes = [
-    'Storage: more write attempts, write attempts GUI',
-    'Simple_config.py: fix FEERATE_STATIC_VALUES not to be less 1000',
-    'Trezor plugin: allow skip session clear on wallet close',
+    'Upgrade project to Python 3.10',
+    'Fix Masternode payouts on Dash Core v20',
+    'Fix PrivateSend feature',
+    'Fix Windows builds',
+    'Dropped Windows x86 support',
+    'Upgraded Tor Proxy bundle in the Windows binaries to the latest version (Tor Expert Bundle 13.0.8)',
 ]
 
 const versions = [
     {
-        title: 'LTS 4.1.5.0',
+        title: 'LTS 4.1.7.4',
         releaseNotes: ltsReleaseNotes,
         links: {
-            windows: '#',
-            mac: '#',
-            linux: '#',
+            windows: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.4/Dash-Electrum-4.1.7.4-setup-win64.exe',
+            mac: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.4/Dash-Electrum-4.1.7.4-macosx.dmg',
+            linux: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.4/Dash-Electrum-4.1.7.4-x86_64.AppImage',
             android: [
-                {title: 'armeabi v7a', href: '#'}, 
+                {title: 'armeabi v7a', href: '#'},
                 {title: 'arm64 v8a', href: '#'}
             ]
         }
     },
     {
-        title: 'Current 4.6.2.0',
+        title: 'Current 4.1.7.4',
         releaseNotes: currentReleaseNotes,
         links: {
-            windows: '#',
-            mac: '#',
-            linux: '#',
+            windows: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.4/Dash-Electrum-4.1.7.4-setup-win64.exe',
+            mac: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.4/Dash-Electrum-4.1.7.4-macosx.dmg',
+            linux: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.4/Dash-Electrum-4.1.7.4-x86_64.AppImage',
             android: [
-                {title: 'armeabi v7a', href: '#'}, 
+                {title: 'armeabi v7a', href: '#'},
                 {title: 'arm64 v8a', href: '#'}
             ]
         }

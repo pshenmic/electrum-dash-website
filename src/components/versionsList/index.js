@@ -5,31 +5,35 @@ import './VersionsListItem.scss'
 
 const versions = [
     {
-        date: 'Mar 8, 2022',
-        version: '4.1.5.2',
-        description: 'version to 4.1.5.2, add RELEASE-NOTES version to 4.1.5.2, add RELEASE-NOTES, version to 4.1.5.2, '
+        date: 'Jan 30, 2024',
+        version: '4.1.7.4',
+        href: 'https://github.com/pshenmic/electrum-dash/releases/tag/4.1.7.4',
+        description: 'Stable release including a lot of work on stabilizing wallet after upgrading libraries and network protocols'
     },
     {
-        date: 'Mar 8, 2022',
-        version: '4.1.5.2',
-        description: 'version to 4.1.5.2, add RELEASE-NOTES'
+        date: 'Jan 28, 2024',
+        version: '4.1.7.4-rc.14',
+        href: 'https://github.com/pshenmic/electrum-dash/releases/tag/4.1.7.4-rc.14',
+        description: 'PrivateSend Release Candidate with Windows builds fixed'
     },
     {
-        date: 'Mar 8, 2022',
-        version: '4.1.5.2',
-        description: 'version to 4.1.5.2, add RELEASE-NOTES'
+        date: 'Jan 17, 2024',
+        version: '4.1.7.4-rc.9',
+        href: 'https://github.com/pshenmic/electrum-dash/releases/tag/4.1.7.4-rc.9',
+        description: 'Release Candidate build with recovered PrivateSend (CoinJoin) feature'
     },
     {
-        date: 'Mar 8, 2022',
-        version: '4.1.5.2',
-        description: 'version to 4.1.5.2, add RELEASE-NOTES'
+        date: 'Jan 17, 2024',
+        version: '4.1.7.3-rc.48',
+        href: 'https://github.com/pshenmic/electrum-dash/releases/tag/4.1.7.3-rc.48',
+        description: 'Renewed all dependencies & upgraded to Python 3.10'
     },
 ]
 
-function VersionsListItem({i, date, version, description}) {
+function VersionsListItem({date, version, href, description}) {
     return (
         <div className={'VersionsListItem'}>
-            <Link href={''} className={'VersionsListItem__ContentContainer'}>
+            <Link href={href} className={'VersionsListItem__ContentContainer'}>
                     <div className={'VersionsListItem__Date'}>{date}</div>
                     <div className={'VersionsListItem__Version'}>{version}</div>
                     <div className={'VersionsListItem__Description'}>{description}</div>
@@ -58,6 +62,7 @@ export default function VersionsList({amount = null}) {
                         <VersionsListItem 
                             i={id}
                             key={id}
+                            href={version.href}
                             date={version.date}
                             version={version.version}
                             description={version.description}

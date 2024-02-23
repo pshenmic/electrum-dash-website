@@ -6,14 +6,13 @@ import './ServersListItem.scss'
 
 const servers = [
     {address: 'dash-electrum.pshenmic.dev:50002'},
-    {address: 'drk.p2pay.com:50002'},
-    {address: 'rnxogu42f3pq3e3oo7shqmh7mtema6   c5fhhhsi54din4olzlu7vsx2id.onion:50002'},
-    {address: '10.20.30.37:5050'},
-    {address: '109.202.30.37:4141'},
+    {address: 'electrum1.cipig.net:20061'},
+    {address: 'electrum2.cipig.net:20061'},
+    {address: 'electrum3.cipig.net:20061'}
 ]
   
 
-function ServersListItem({server, id}) {
+function ServersListItem({server}) {
     return (
         <div className={'ServersListItem'}>
 

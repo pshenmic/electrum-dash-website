@@ -103,12 +103,12 @@ export default function Team() {
                 className = {'Team__Teammate'}
                 name = {'Mikhail Pshenichnikov'}
                 role = {'Maintainer'}
-                gpgkey = {'2BB6803FCF82316969619C155699884482E426AC'}
-                email = {'mail@pshenmic.dev'}
+                gpgkey = {'A0CEDD7911C63ACB60D3864894683166E3280A61'}
+                email = {'pshenmic@gmail.com'}
                 imgSrc = {'/images/pshenmic_avatar.jpg'}
                 links = {{
-                    website: 'https://pshenmic.dev/',
-                    github: 'https://github.com/pshenmic/',
+                    website: 'https://pshenmic.dev',
+                    github: 'https://github.com/pshenmic',
                     twitter: 'https://twitter.com/pshenmic',
                     discord: 'https://discordapp.com/users/784071440864378911'
                 }}

@@ -23,7 +23,7 @@ export default function Community() {
 
       <section className={'CommunityPage__Servers'}>
 
-                <ServersList/>
+        <ServersList/>
 
       </section>
     </main>
