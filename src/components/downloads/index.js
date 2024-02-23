@@ -205,7 +205,7 @@ function DownloadsBlock({format = 'info'}) {
 
             {(format === 'logo') &&
                 <div className='Downloads__Logo'>
-                    <Image alt="electrum dash logo" src='/images/electrum-dash.svg'width={0} height={0}/>
+                    <Image alt="electrum dash logo" src='/images/electrum-dash.svg' width={0} height={0}/>
                 </div>
             }
 
