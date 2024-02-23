@@ -49,9 +49,9 @@ export default function About() {
                     funds secure and mobile. Dash Electrum also supports advanced InstantSend, CoinJoin 
                     and masternode features.
                     <br/><br/>
-                    The wallet was developed with the support of Dash Incubator and Dash DAO. 
-                    Dash Electrum is a fork of the Electrum wallet for Bitcoin. While this documentation focuses on using Dash Electrum, 
-                    full documentation of all Bitcoin Electrum features (mostly identical in Dash Electrum) 
+                    The wallet was developed via funding of Dash DAO and currently maintained by Dash Incubator.
+                    Dash Electrum is a fork of the Electrum wallet for Bitcoin. While this documentation focuses on using Dash Electrum,
+                    full documentation of all Bitcoin Electrum features (mostly identical in Dash Electrum)
                     is available at the official documentation site.
                   </ContentContainer>
                 </ContentBlockContent>
