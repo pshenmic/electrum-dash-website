@@ -100,15 +100,15 @@ function DownloadTabs({activeVersion, changeVersion}) {
         <div className={'DownloadTabs'}>
 
             {versions.map((version, id) =>
-                <div 
+                <div
                     key={id}
-                    className={'DownloadTabs__Tab ' + (activeVersion === id ? 'active' : '') } 
+                    className={'DownloadTabs__Tab ' + (activeVersion === id ? 'active' : '') }
                     onClick={() => changeVersion(id)}
                 >
                     {version.title}
                 </div>
             )}
-            
+
         </div>
     )
 }
@@ -136,8 +136,8 @@ function DownloadsList({activeVersion, changeVersion}) {
     return (
         <div className='Downloads__List'>
             <div className={'Downloads__Tabs'}>
-                <DownloadTabs 
-                    activeVersion={activeVersion} 
+                <DownloadTabs
+                    activeVersion={activeVersion}
                     changeVersion={changeVersion}
                 />
             </div>
@@ -156,7 +156,7 @@ function DownloadsList({activeVersion, changeVersion}) {
 
                 {versions[activeVersion].links.mac &&
                     <div className={'Downloads__Button'}>
-                        <DownloadButton 
+                        <DownloadButton
                             iconSrc={'/images/mac.svg'}
                             title={'Mac'}
                             link={versions[activeVersion].links.mac}
@@ -166,17 +166,17 @@ function DownloadsList({activeVersion, changeVersion}) {
 
                 {versions[activeVersion].links.linux &&
                     <div className={'Downloads__Button'}>
-                        <DownloadButton 
+                        <DownloadButton
                             iconSrc={'/images/linux.svg'}
                             title={'Linux'}
-                            link={'#'}
+                            link={versions[activeVersion].links.linux}
                         />
                     </div>
                 }
 
                 {versions[activeVersion].links.android &&
                     <div className={'Downloads__Button'}>
-                        <DownloadButtonDouble 
+                        <DownloadButtonDouble
                             iconSrc={'/images/android.svg'}
                             title={'Android'}
                             links={versions[activeVersion].links.android}
@@ -197,7 +197,7 @@ function DownloadsBlock({format = 'info'}) {
         <div className={'Downloads ' + (format === 'info' ? 'Downloads--Info' : '')}>
 
             <div className="Downloads__ListContainer">
-                <DownloadsList 
+                <DownloadsList
                     activeVersion={activeVersion}
                     changeVersion={setActiveVersion}
                 />
