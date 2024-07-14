@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef  } from 'react'
 import Link from 'next/link'
+import { GlobalMessage } from '../messages'
 import './Header.scss'
 import './Burger.scss'
 
@@ -26,6 +27,12 @@ export default function Header() {
   return (
     <>
       <div className={'HeaderStub'}></div>
+      
+      <GlobalMessage type={'warning'}>
+        There is a fake electrum dash website and there is hosted absolutely different binaries.<br/>
+        Most likely it is a SCAM that can steal your keys if you download it and execute it on the system.
+      </GlobalMessage>
+
       <header className={'Header'}>
         <div className={'Header__ContentContainer'}>
           <Link className={'Header__LogoContainer'} href="/">
