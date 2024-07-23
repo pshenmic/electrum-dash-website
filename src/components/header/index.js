@@ -27,10 +27,16 @@ export default function Header() {
   return (
     <>
       <div className={'HeaderStub'}></div>
-      
+
       <GlobalMessage type={'warning'}>
-        There is a fake electrum dash website and there is hosted absolutely different binaries.<br/>
-        Most likely it is a SCAM that can steal your keys if you download it and execute it on the system.
+        There is a fake Electrum Dash website with absolutely unknown binaries, we can't verify its
+        authenticity.<br/>
+        Most likely it is a SCAM that can steal your keys if you download it and execute it on your system. <br/>
+        <br/>
+        Please make sure you are on the correct website and page url matches one of these LEGIT domains:<br/> <br/>
+        electrum-dash.com<br/>
+        dash-electrum.com<br/>
+        dash-electrum.org<br/>
       </GlobalMessage>
 
       <header className={'Header'}>
@@ -43,16 +49,16 @@ export default function Header() {
             </div>
           </Link>
 
-          <input 
-            id='MobileMenu' 
+          <input
+            id='MobileMenu'
             ref={mobileMenuSwitcher}
-            type='checkbox' 
+            type='checkbox'
             style={{display: 'none'}}
           />
 
           <label
             htmlFor={'MobileMenu'}
-            className={'Header__Burger Burger'} 
+            className={'Header__Burger Burger'}
           >
             <span className='Burger__Line'></span>
             <span className='Burger__Line'></span>
