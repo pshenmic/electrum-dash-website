@@ -29,7 +29,7 @@ export default function Header() {
       <div className={'HeaderStub'}></div>
 
       <GlobalMessage type={'warning'}>
-        There is a fake Electrum Dash website with absolutely unknown binaries, we can't verify its
+        There is a fake Electrum Dash website with absolutely unknown binaries, we can&apos;t verify its
         authenticity.<br/>
         Most likely it is a SCAM that can steal your keys if you download it and execute it on your system. <br/>
         <br/>
