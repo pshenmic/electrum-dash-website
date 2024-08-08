@@ -5,6 +5,12 @@ import './VersionsListItem.scss'
 
 const versions = [
     {
+        date: 'Aug 9, 2024',
+        version: '4.1.7.5',
+        href: 'https://github.com/pshenmic/electrum-dash/releases/tag/4.1.7.5',
+        description: 'Fixes Linux AppImage binary build and crash after setting custom denominations in the PrivateSend dialog.'
+    },
+    {
         date: 'Jan 30, 2024',
         version: '4.1.7.4',
         href: 'https://github.com/pshenmic/electrum-dash/releases/tag/4.1.7.4',
@@ -59,7 +65,7 @@ export default function VersionsList({amount = null}) {
                 <div className={'VersionsList'}>
 
                     {elements.map((version, id) =>
-                        <VersionsListItem 
+                        <VersionsListItem
                             i={id}
                             key={id}
                             href={version.href}
@@ -68,7 +74,7 @@ export default function VersionsList({amount = null}) {
                             description={version.description}
                         />
                     )}
-                    
+
                 </div>
             </ContentBlockContent>
         </ContentBlock>
