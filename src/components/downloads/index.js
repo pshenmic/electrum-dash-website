@@ -29,12 +29,12 @@ const currentReleaseNotes = [
 
 const versions = [
     {
-        title: 'LTS 4.1.7.5',
+        title: 'LTS 4.1.7.6',
         releaseNotes: ltsReleaseNotes,
         links: {
-            windows: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.5/Dash-Electrum-4.1.7.5-setup-win64.exe',
-            mac: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.5/Dash-Electrum-4.1.7.5-macosx.dmg',
-            linux: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.5/Dash-Electrum-4.1.7.5-x86_64.AppImage',
+            windows: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.6/Dash-Electrum-4.1.7.6-setup-win64.exe',
+            mac: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.6/Dash-Electrum-4.1.7.6-macosx.dmg',
+            linux: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.6/Dash-Electrum-4.1.7.6-x86_64.AppImage',
             android: [
                 {title: 'armeabi v7a', href: '#'},
                 {title: 'arm64 v8a', href: '#'}
@@ -42,12 +42,12 @@ const versions = [
         }
     },
     {
-        title: 'Current 4.1.7.5',
+        title: 'Current 4.1.7.6',
         releaseNotes: currentReleaseNotes,
         links: {
-            windows: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.5/Dash-Electrum-4.1.7.5-setup-win64.exe',
-            mac: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.5/Dash-Electrum-4.1.7.5-macosx.dmg',
-            linux: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.5/Dash-Electrum-4.1.7.5-x86_64.AppImage',
+            windows: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.6/Dash-Electrum-4.1.7.6-setup-win64.exe',
+            mac: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.6/Dash-Electrum-4.1.7.6-macosx.dmg',
+            linux: 'https://github.com/pshenmic/electrum-dash/releases/download/4.1.7.6/Dash-Electrum-4.1.7.6-x86_64.AppImage',
             android: [
                 {title: 'armeabi v7a', href: '#'},
                 {title: 'arm64 v8a', href: '#'}

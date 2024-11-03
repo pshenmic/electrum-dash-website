@@ -5,6 +5,12 @@ import './VersionsListItem.scss'
 
 const versions = [
     {
+        date: 'Nov 4, 2024',
+        version: '4.1.7.6',
+        href: 'https://github.com/pshenmic/electrum-dash/releases/tag/4.1.7.6',
+        description: 'Fixes connection problems for wallets with AssetLock / AssetUnlock transactions.'
+    },
+    {
         date: 'Aug 9, 2024',
         version: '4.1.7.5',
         href: 'https://github.com/pshenmic/electrum-dash/releases/tag/4.1.7.5',
